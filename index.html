@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FABE — Bewijs, planning en facturen op de werf</title>
+<meta name="description" content="FABE bewijst wat je gedaan hebt. Planning, offertes, facturen, foto's en werkbonnen in één app voor zelfstandige vakmensen in België en Nederland. Werkt ook zonder bereik. € 19 per maand, punt.">
+<meta property="og:title" content="FABE — Fix And Build Everywhere">
+<meta property="og:description" content="De app die bewijst wat je gedaan hebt. Voor zelfstandige vakmensen in BE/NL. Werkt ook zonder bereik.">
+<style>
+  :root{
+    --bg:#141416; --bg2:#1C1C1E; --card:#232326; --line:#35353A;
+    --gold:#B5862A; --gold2:#D8A93E; --text:#EDEDEF; --muted:#A2A2A7; --dim:#6F6F74;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold2);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,20,22,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;gap:28px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:3px;color:var(--gold2);font-size:1.15rem}
+  .mark{width:34px;height:34px;background:linear-gradient(135deg,var(--gold2),var(--gold));border-radius:9px;display:flex;align-items:center;justify-content:center;flex:none}
+  .mark svg{width:20px;height:20px}
+  .nav-links{display:flex;gap:22px;margin-left:auto;font-size:.95rem}
+  .nav-links a{color:var(--muted)} .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#141416;font-weight:700;padding:12px 22px;border-radius:10px;transition:transform .15s ease, box-shadow .15s ease}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(216,169,62,.25)}
+  .btn.small{padding:9px 16px;font-size:.9rem}
+  .btn.ghost{background:none;border:1px solid var(--line);color:var(--text)}
+  @media(max-width:720px){.nav-links{display:none}}
+
+  /* Hero */
+  header{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:
+    radial-gradient(700px 380px at 78% 10%,rgba(181,134,42,.16),transparent 65%),
+    radial-gradient(520px 420px at 8% 90%,rgba(181,134,42,.07),transparent 60%),var(--bg)}
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:84px 0 72px}
+  .kicker{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--muted);font-size:.85rem;margin-bottom:20px;background:var(--bg2)}
+  .kicker b{color:var(--gold2);font-weight:600}
+  h1{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.12;font-weight:800;letter-spacing:-.5px}
+  h1 em{font-style:normal;color:var(--gold2)}
+  .lead{color:var(--muted);font-size:1.15rem;margin:20px 0 30px;max-width:52ch}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .cta-note{color:var(--dim);font-size:.85rem;margin-top:14px}
+  .trust{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:36px;color:var(--muted);font-size:.9rem}
+  .trust span{display:flex;align-items:center;gap:8px}
+  .trust svg{width:15px;height:15px;flex:none}
+
+  /* Phone mockup */
+  .phone-zone{display:flex;justify-content:center}
+  .phone{width:300px;background:#0E0E10;border:1px solid #3A3A40;border-radius:38px;padding:12px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(216,169,62,.08);transform:rotate(2.5deg)}
+  .screen{background:var(--bg2);border-radius:28px;overflow:hidden;padding:18px 16px 22px;font-size:.8rem}
+  .notch{width:86px;height:5px;background:#000;border-radius:99px;margin:0 auto 14px}
+  .p-date{font-weight:700;font-size:1rem}
+  .p-weather{color:var(--muted);margin-top:2px;font-size:.78rem}
+  .chiprow{display:flex;gap:8px;margin:14px 0}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:7px 10px;flex:1;text-align:center}
+  .chip b{display:block;color:var(--gold2);font-size:1rem}
+  .chip i{font-style:normal;color:var(--dim);font-size:.66rem}
+  .p-sec{color:var(--dim);font-size:.68rem;letter-spacing:1.4px;margin:14px 0 8px}
+  .job{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:9px}
+  .job.urgent{border-left:3px solid #E0603E}
+  .job-top{display:flex;justify-content:space-between;align-items:center}
+  .job b{font-size:.85rem}
+  .badge{font-size:.62rem;padding:3px 8px;border-radius:99px;background:rgba(74,144,217,.15);color:#7FB3E8}
+  .badge.done{background:rgba(97,176,110,.15);color:#7FCB8B}
+  .job p{color:var(--muted);font-size:.72rem;margin-top:3px}
+  .p-cta{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#141416;font-weight:700;text-align:center;border-radius:11px;padding:11px;margin-top:12px;font-size:.82rem}
+  @media(max-width:860px){.hero{grid-template-columns:1fr;padding:56px 0 48px}.phone{transform:none;width:270px}.phone-zone{order:2}}
+
+  /* Sections */
+  section{padding:76px 0;border-bottom:1px solid var(--line)}
+  .sec-kicker{color:var(--gold2);font-size:.85rem;letter-spacing:2.5px;font-weight:600;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;letter-spacing:-.3px;max-width:24ch}
+  .sec-lead{color:var(--muted);margin-top:14px;max-width:62ch}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  @media(max-width:860px){.grid3{grid-template-columns:1fr}}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;transition:border-color .2s}
+  .feat:hover{border-color:rgba(216,169,62,.45)}
+  .feat .ico{width:44px;height:44px;border-radius:12px;background:rgba(181,134,42,.14);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .feat .ico svg{width:22px;height:22px}
+  .feat h3{font-size:1.05rem;margin-bottom:8px}
+  .feat p{color:var(--muted);font-size:.94rem}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;counter-reset:step}
+  @media(max-width:860px){.steps{grid-template-columns:1fr}}
+  .step{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px 24px 24px}
+  .step::before{counter-increment:step;content:counter(step);position:absolute;top:-16px;left:22px;width:32px;height:32px;border-radius:99px;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#141416;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+  .step h3{margin:6px 0 8px;font-size:1.02rem}
+  .step p{color:var(--muted);font-size:.94rem}
+
+  /* Pricing */
+  .price-card{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(216,169,62,.4);border-radius:20px;overflow:hidden;background:
+    radial-gradient(400px 240px at 85% 15%,rgba(181,134,42,.14),transparent 60%),var(--card)}
+  @media(max-width:860px){.price-card{grid-template-columns:1fr}}
+  .price-left{padding:38px 34px;border-right:1px solid var(--line)}
+  @media(max-width:860px){.price-left{border-right:none;border-bottom:1px solid var(--line)}}
+  .price-num{font-size:3.4rem;font-weight:800;color:var(--gold2);line-height:1}
+  .price-num small{font-size:1.1rem;color:var(--muted);font-weight:400}
+  .price-sub{color:var(--muted);margin:10px 0 22px}
+  .price-right{padding:38px 34px}
+  .tick{display:flex;gap:11px;margin-bottom:12px;color:var(--text);font-size:.96rem;align-items:flex-start}
+  .tick svg{width:17px;height:17px;flex:none;margin-top:4px}
+  .compare{color:var(--dim);font-size:.85rem;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+
+  /* FAQ */
+  details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin-top:12px;overflow:hidden}
+  summary{cursor:pointer;padding:18px 22px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--gold2);font-size:1.3rem;font-weight:400;transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 22px 20px;color:var(--muted);font-size:.95rem}
+
+  /* Beta CTA */
+  .beta-band{margin-top:0;text-align:center;padding:84px 24px;background:
+    radial-gradient(600px 300px at 50% 0%,rgba(181,134,42,.16),transparent 65%),var(--bg2);border-bottom:1px solid var(--line)}
+  .beta-band h2{margin:0 auto}
+  .beta-band .sec-lead{margin:16px auto 30px}
+
+  footer{padding:44px 0 56px;color:var(--dim);font-size:.87rem}
+  .foot-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
+  .foot-links a{color:var(--muted)} .foot-links a:hover{color:var(--gold2)}
+
+  /* Reveal */
+  .rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <div class="brand"><div class="mark" aria-hidden="true"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><path d="M20 38 L31 49 L52 24" fill="none" stroke="#141416" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>FABE</div>
+  <div class="nav-links">
+    <a href="#functies">Functies</a><a href="#werkdag">Zo werkt het</a><a href="#prijs">Prijs</a><a href="#faq">Vragen</a>
+  </div>
+  <a class="btn small" href="mailto:info@getfabe.com?subject=Ik%20wil%20de%20b%C3%A8ta%20testen">Doe mee met de bèta</a>
+</div></nav>
+
+<header><div class="wrap hero">
+  <div>
+    <span class="kicker">Voor zelfstandige vakmensen in <b>België en Nederland</b></span>
+    <h1>FABE bewijst<br>wat je <em>gedaan</em> hebt.</h1>
+    <p class="lead">Planning, offertes, facturen, foto's en getekende werkbonnen in één app. Op de werf, met vuile handen, ook zonder bereik — en 's avonds ben je klaar in plaats van net begonnen.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:info@getfabe.com?subject=Ik%20wil%20de%20b%C3%A8ta%20testen">Gratis meedoen met de bèta</a>
+      <a class="btn ghost" href="#functies">Bekijk wat het doet</a>
+    </div>
+    <p class="cta-note">Bèta is gratis · daarna € 19 per maand, alles inbegrepen · geen creditcard nodig</p>
+    <div class="trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Werkt volledig offline</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gegevens in de EU</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Geen tracking, geen advertenties</span>
+    </div>
+  </div>
+  <div class="phone-zone"><div class="phone" aria-hidden="true"><div class="screen">
+    <div class="notch"></div>
+    <div class="p-date">Vrijdag 6 september</div>
+    <div class="p-weather">☀ 21° Zonnig · Zwijndrecht</div>
+    <div class="chiprow">
+      <div class="chip"><b>3</b><i>KLUSSEN VANDAAG</i></div>
+      <div class="chip"><b>€ 1.240</b><i>OMZET DEZE WEEK</i></div>
+    </div>
+    <div class="p-sec">ACTIE NODIG</div>
+    <div class="job urgent"><div class="job-top"><b>Factuur De Wit</b><span class="badge" style="background:rgba(224,96,62,.15);color:#F0906E">5 dagen te laat</span></div><p>€ 860 · herinnering klaar om te versturen</p></div>
+    <div class="p-sec">VANDAAG</div>
+    <div class="job"><div class="job-top"><b>Badkamer — Janssens</b><span class="badge">09:00</span></div><p>Kraanvervanging · Mechelsesteenweg 14</p></div>
+    <div class="job"><div class="job-top"><b>Dakgoot — Peeters</b><span class="badge done">Klaar</span></div><p>Werkbon getekend · 4 foto's</p></div>
+    <div class="p-cta">+ Nieuwe klus</div>
+  </div></div></div>
+</div></header>
+
+<section id="functies"><div class="wrap">
+  <p class="sec-kicker rv">Waarom FABE</p>
+  <h2 class="rv">Gemaakt voor de werf, niet voor het kantoor</h2>
+  <p class="sec-lead rv">De meeste software is gebouwd voor teams met een planner achter een bureau. FABE is gebouwd voor de vakman die alles zelf doet — met grote knoppen, één duidelijke actie per scherm, en een app die je onderbreekt op het juiste moment in plaats van 's avonds aan de keukentafel.</p>
+  <div class="grid3">
+    <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <h3>Bewijs bij discussies</h3><p>Voor- en na-foto's met tijdstempel, een getekende werkbon en meerwerk vastgelegd op het moment zelf — bij de klant, niet uit het geheugen.</p></div>
+    <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <h3>Je dag, geregeld</h3><p>Agenda en weekkaart, reistijd-waarschuwing vóór je te laat vertrekt, en "Ik ben onderweg" of "Ik loop uit" in één tik — in de taal van de klant.</p></div>
+    <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+      <h3>Van offerte tot betaald</h3><p>Offerte in minuten, factuur uit de klus zelf, en straks een QR-code waarmee de klant direct vanaf de factuur betaalt. Kent btw-verlegging.</p></div>
+    <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.58 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
+      <h3>Werkt ook in de kruipruimte</h3><p>Volledig offline te gebruiken. Geen bereik in de kelder? Alles werkt gewoon door en synchroniseert vanzelf zodra je weer boven bent.</p></div>
+    <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>Je werk staat veilig</h3><p>Telefoon kapot of gestolen? Met een gratis account staat je hele administratie versleuteld in een Europese cloud en zet je alles terug op een nieuw toestel.</p></div>
+    <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg></div>
+      <h3>Spreekt de taal van je klant</h3><p>Nederlands, Frans en Engels. Offertes, facturen en berichten gaan automatisch in de taal die je per klant instelt.</p></div>
+  </div>
+</div></section>
+
+<section id="werkdag"><div class="wrap">
+  <p class="sec-kicker rv">Zo werkt het</p>
+  <h2 class="rv">Eén klus, van begin tot betaald</h2>
+  <div class="steps">
+    <div class="step rv"><h3>Klus erin, klaar</h3><p>Klant en klus aanmaken kost seconden. FABE zoekt het adres erbij, plant de rit en waarschuwt wanneer je moet vertrekken.</p></div>
+    <div class="step rv"><h3>Werken en vastleggen</h3><p>Foto's vóór en na, meerwerk direct genoteerd, werkbon ter plekke getekend. Alles hangt aan de klus — niets raakt kwijt.</p></div>
+    <div class="step rv"><h3>Factuur eruit, geld erin</h3><p>De factuur staat al voor je klaar op basis van wat je vastlegde. Versturen, klaar. Te laat betaald? FABE houdt het bij en zet de herinnering klaar.</p></div>
+  </div>
+</div></section>
+
+<section id="prijs"><div class="wrap">
+  <p class="sec-kicker rv">Prijs</p>
+  <h2 class="rv">Eén prijs. Alles erin. Geen kleine lettertjes.</h2>
+  <div class="price-card rv">
+    <div class="price-left">
+      <div class="price-num">€ 19<small> / maand</small></div>
+      <p class="price-sub">Vast bedrag. Geen prijs per gebruiker, geen limiet op klussen of facturen, geen verplicht jaarcontract.</p>
+      <a class="btn" href="mailto:info@getfabe.com?subject=Ik%20wil%20de%20b%C3%A8ta%20testen">Start gratis in de bèta</a>
+    </div>
+    <div class="price-right">
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Onbeperkt klanten, klussen, offertes en facturen</div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Foto's, handtekeningen en spraakmemo's inbegrepen</div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Cloudback-up in de EU inbegrepen</div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Maandelijks opzegbaar, je gegevens neem je mee</div>
+      <p class="compare">Ter vergelijking: soortgelijke vakman-software kost in Duitsland € 48 tot € 80 per maand — en de goedkope factuurtools staan niet op de werf.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <p class="sec-kicker rv">Veelgestelde vragen</p>
+  <h2 class="rv">Eerlijke antwoorden</h2>
+  <div style="max-width:760px;margin-top:32px">
+    <details class="rv"><summary>Werkt FABE echt zonder internet?</summary><p>Ja, volledig. FABE is lokaal-eerst gebouwd: alles staat op je eigen telefoon en de app heeft geen verbinding nodig om te werken. Zodra er weer bereik is, synchroniseert alles vanzelf naar je beveiligde cloudback-up.</p></details>
+    <details class="rv"><summary>Van wie zijn mijn gegevens?</summary><p>Van jou. Je administratie staat op je eigen toestel en — met een account — versleuteld op servers in de EU (Frankfurt). Wij verkopen geen gegevens, tonen geen advertenties en gebruiken geen tracking. Stap je eruit, dan neem je alles mee via de export.</p></details>
+    <details class="rv"><summary>Kan ik maandelijks opzeggen?</summary><p>Ja. Geen jaarcontract, geen opzegtermijn-trucs. En tijdens de bèta betaal je helemaal niets.</p></details>
+    <details class="rv"><summary>Is er een iPhone-versie?</summary><p>FABE start op Android; een iPhone-versie staat op de planning. Laat via <a href="mailto:info@getfabe.com">info@getfabe.com</a> weten dat je interesse hebt — dat bepaalt mee hoe snel hij er komt.</p></details>
+    <details class="rv"><summary>Kent FABE btw-verlegging en Belgische én Nederlandse btw?</summary><p>Ja. FABE is voor de Benelux gebouwd, niet vertaald uit het Engels: btw-tarieven, btw-verlegging en documenten in het Nederlands en Frans zitten erin.</p></details>
+  </div>
+</div></section>
+
+<div class="beta-band">
+  <p class="sec-kicker">De bèta loopt</p>
+  <h2>Test FABE gratis op je echte klussen</h2>
+  <p class="sec-lead" style="max-width:52ch">Een handvol vakmensen test FABE nu op echte werven. Doe mee, betaal niets, en bepaal mee hoe de app wordt.</p>
+  <a class="btn" href="mailto:info@getfabe.com?subject=Ik%20wil%20de%20b%C3%A8ta%20testen">Mail info@getfabe.com</a>
+</div>
+
+<footer><div class="wrap foot-in">
+  <div>
+    <div class="brand" style="font-size:1rem;margin-bottom:10px"><div class="mark" style="width:26px;height:26px;border-radius:7px"><svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg"><path d="M20 38 L31 49 L52 24" fill="none" stroke="#141416" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>FABE</div>
+    <p>Fix And Build Everywhere<br>Een product van ABACOR plus services<br>Zonnestein 196, 3332 NX Zwijndrecht (NL)<br>KvK 96044268 · BTW NL005185918B10</p>
+  </div>
+  <div class="foot-links">
+    <a href="/privacy.html">Privacybeleid</a>
+    <a href="/voorwaarden.html">Gebruiksvoorwaarden</a>
+    <a href="/account-verwijderen.html">Account verwijderen</a>
+    <a href="mailto:info@getfabe.com">info@getfabe.com</a>
+  </div>
+</div></footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

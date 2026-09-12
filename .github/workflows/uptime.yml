@@ -1,0 +1,94 @@
+# Uptime-bewaking voor getfabe.com (en, als het geheim er staat, Supabase).
+#
+# Deze kopie in de FABE-repo is de leesbare bron; het bestand dat echt draait
+# staat in de repo `getfabe-site` als `.github/workflows/uptime.yml`. Daar is
+# hij gratis en onbeperkt (publieke repo) en hoeft er geen account bij een
+# derde partij te worden aangemaakt.
+#
+# Wat hij doet: elke vijf minuten de vier pagina's van de site opvragen en de
+# inhoud controleren -- niet alleen de statuscode, want een GitHub
+# Pages-fout geeft ook 200 terug met een 404-pagina. Faalt er iets, dan faalt
+# de workflow, en GitHub mailt dat naar de eigenaar van de repo.
+#
+# Twee dingen om te weten:
+#   1. De cron van GitHub Actions is "best effort" -- vijf minuten is de
+#      kleinste stap, maar in de praktijk kan een run tien tot vijftien
+#      minuten later vallen. Voor "de site is al een uur stuk" is dat ruim
+#      genoeg; voor een exacte uptime-meting niet. Wil je dat laatste, dan is
+#      UptimeRobot het instrument -- zie docs/beta/UPTIME-BEWAKING.md.
+#   2. GitHub zet een cron-workflow in een publieke repo stil na 60 dagen
+#      zonder commits in die repo. De site verandert zelden, dus dat gebeurt
+#      een keer; de mail die GitHub daarover stuurt is de herinnering.
+name: uptime
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: getfabe.com
+        run: |
+          set -u
+          fout=0
+          # pad;verwachte tekst
+          controles=(
+            "/;FABE"
+            "/privacy.html;Privacybeleid"
+            "/voorwaarden.html;Gebruiksvoorwaarden"
+            "/account-verwijderen.html;verwijderen"
+          )
+          for controle in "${controles[@]}"; do
+            pad="${controle%%;*}"
+            verwacht="${controle#*;}"
+            gelukt=0
+            # Drie pogingen: een enkele hik van een CDN is geen storing.
+            for poging in 1 2 3; do
+              code=$(curl -sS -o /tmp/pagina -w '%{http_code}' --max-time 20 "https://getfabe.com${pad}" || echo 000)
+              if [ "$code" = "200" ] && grep -qi -- "$verwacht" /tmp/pagina; then
+                echo "ok      ${pad} (${code}, tekst gevonden)"
+                gelukt=1
+                break
+              fi
+              echo "poging ${poging} mislukt: ${pad} -> status ${code}"
+              sleep 10
+            done
+            if [ "$gelukt" = "0" ]; then
+              echo "STUK    ${pad}"
+              fout=1
+            fi
+          done
+          exit $fout
+
+      - name: Supabase
+        # Slaat zichzelf over zolang de twee geheimen niet in de repo staan;
+        # zie docs/beta/UPTIME-BEWAKING.md voor de twee velden.
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -u
+          if [ -z "${SUPABASE_URL}" ] || [ -z "${SUPABASE_ANON_KEY}" ]; then
+            echo "Geheimen SUPABASE_URL/SUPABASE_ANON_KEY niet gezet -- Supabase niet bewaakt."
+            exit 0
+          fi
+          gelukt=0
+          for poging in 1 2 3; do
+            code=$(curl -sS -o /tmp/health -w '%{http_code}' --max-time 20 \
+              -H "apikey: ${SUPABASE_ANON_KEY}" "${SUPABASE_URL}/auth/v1/health" || echo 000)
+            if [ "$code" = "200" ] && grep -q 'GoTrue' /tmp/health; then
+              echo "ok      Supabase auth (${code})"
+              gelukt=1
+              break
+            fi
+            echo "poging ${poging} mislukt: Supabase -> status ${code}"
+            sleep 10
+          done
+          [ "$gelukt" = "1" ] || { echo "STUK    Supabase"; exit 1; }

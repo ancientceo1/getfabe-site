@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FABE — Bewijs, planning en facturen op de werf</title>
-<meta name="description" content="FABE bewijst wat je gedaan hebt. Planning, offertes, facturen, foto's en werkbonnen in één app voor zelfstandige vakmensen in België en Nederland. Werkt ook zonder bereik. € 19 per maand, punt.">
+<meta name="description" content="FABE bewijst wat je gedaan hebt. Planning, offertes, facturen, foto's en werkbonnen in één app voor de vakman met een eigen zaak in België en Nederland. Werkt ook zonder bereik. € 19 per maand, punt.">
 <meta property="og:title" content="FABE — Fix And Build Everywhere">
-<meta property="og:description" content="De app die bewijst wat je gedaan hebt. Voor zelfstandige vakmensen in BE/NL. Werkt ook zonder bereik.">
+<meta property="og:description" content="De app die bewijst wat je gedaan hebt. Voor de vakman met een eigen zaak in BE/NL. Werkt ook zonder bereik.">
 <style>
   :root{
     --bg:#141416; --bg2:#1C1C1E; --card:#232326; --line:#35353A;
@@ -126,6 +126,25 @@
   .foot-links{display:flex;gap:20px;flex-wrap:wrap}
   .foot-links a{color:var(--muted)} .foot-links a:hover{color:var(--gold2)}
 
+  /* Microbeloften onder de CTA */
+  .beloften{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;padding:0;list-style:none}
+  .beloften li{display:flex;align-items:center;gap:7px;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:7px 14px;color:var(--muted);font-size:.85rem}
+  .beloften svg{width:13px;height:13px;flex:none}
+
+  /* Vakkenstrook */
+  .vakken{padding:44px 0;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .vakken p.sec-kicker{margin-bottom:16px}
+  .vaklijst{display:flex;gap:10px;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+  .vaklijst li{border:1px solid var(--line);border-radius:999px;padding:9px 16px;color:var(--text);font-size:.92rem;background:var(--card)}
+  .vakken .naschrift{color:var(--muted);font-size:.85rem;margin-top:18px;max-width:62ch}
+
+  /* Eén NIEUW-badge */
+  .nieuw{display:inline-block;margin-left:8px;vertical-align:middle;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#141416;font-size:.62rem;font-weight:800;letter-spacing:1.2px;padding:3px 8px;border-radius:999px}
+
+  /* Nog niet ingevuld: wacht op het zakelijke FABE-nummer. Eén klasse eraf en
+     de knop en de voettekstregel staan er. Zie data-todo="fabe-nummer". */
+  .wacht-op-nummer{display:none !important}
+
   /* Reveal */
   .rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
   .rv.in{opacity:1;transform:none}
@@ -143,14 +162,22 @@
 
 <header><div class="wrap hero">
   <div>
-    <span class="kicker">Voor zelfstandige vakmensen in <b>België en Nederland</b></span>
+    <span class="kicker">Voor de vakman met een <b>eigen zaak</b> in België en Nederland</span>
     <h1>FABE bewijst<br>wat je <em>gedaan</em> hebt.</h1>
     <p class="lead">Planning, offertes, facturen, foto's en getekende werkbonnen in één app. Op de werf, met vuile handen, ook zonder bereik — en 's avonds ben je klaar in plaats van net begonnen.</p>
     <div class="cta-row">
       <a class="btn" href="mailto:info@getfabe.com?subject=Ik%20wil%20de%20b%C3%A8ta%20testen">Gratis meedoen met de bèta</a>
+      <!-- Tweede CTA: staat klaar, wacht op het zakelijke FABE-nummer.
+           Invullen = het nummer in href zetten en class="wacht-op-nummer" weghalen. -->
+      <a class="btn ghost wacht-op-nummer" data-todo="fabe-nummer" href="tel:">Bel of app me</a>
       <a class="btn ghost" href="#functies">Bekijk wat het doet</a>
     </div>
-    <p class="cta-note">Bèta is gratis · daarna € 19 per maand, alles inbegrepen · geen creditcard nodig</p>
+    <ul class="beloften">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Binnen 5 minuten aan de slag</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Maandelijks opzegbaar</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Geen betaalgegevens nodig</li>
+    </ul>
+    <p class="cta-note">Bèta is gratis · daarna € 19 per maand, alles inbegrepen</p>
     <div class="trust">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Werkt volledig offline</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gegevens in de EU</span>
@@ -174,17 +201,32 @@
   </div></div></div>
 </div></header>
 
+<div class="vakken"><div class="wrap">
+  <p class="sec-kicker">Voor welk vak</p>
+  <ul class="vaklijst">
+    <li>Loodgieter</li>
+    <li>Elektricien</li>
+    <li>Schilder</li>
+    <li>Dakwerker</li>
+    <li>Tegelzetter</li>
+    <li>Cv-installateur</li>
+    <li>Schrijnwerker / timmerman</li>
+    <li>Klusbedrijf</li>
+  </ul>
+  <p class="naschrift">Eén app voor het werk dat op een werf gebeurt. De klus, de foto's, de werkbon en de factuur zijn overal hetzelfde — alleen de woorden op je offerte verschillen, en die zet je zelf klaar in je eigen sjablonen.</p>
+</div></div>
+
 <section id="functies"><div class="wrap">
   <p class="sec-kicker rv">Waarom FABE</p>
   <h2 class="rv">Gemaakt voor de werf, niet voor het kantoor</h2>
-  <p class="sec-lead rv">De meeste software is gebouwd voor teams met een planner achter een bureau. FABE is gebouwd voor de vakman die alles zelf doet — met grote knoppen, één duidelijke actie per scherm, en een app die je onderbreekt op het juiste moment in plaats van 's avonds aan de keukentafel.</p>
+  <p class="sec-lead rv"><b>Gebouwd voor de vakman die zijn eigen zaak runt — alles wat de software van een grote ploeg biedt, voor een fractie van de prijs, en het blijft werken zonder bereik op de werf.</b> De meeste software is gebouwd voor teams met een planner achter een bureau. FABE is gebouwd voor de vakman die alles zelf doet — met grote knoppen, één duidelijke actie per scherm, en een app die je onderbreekt op het juiste moment in plaats van 's avonds aan de keukentafel.</p>
   <div class="grid3">
     <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
       <h3>Bewijs bij discussies</h3><p>Voor- en na-foto's met tijdstempel, een getekende werkbon en meerwerk vastgelegd op het moment zelf — bij de klant, niet uit het geheugen.</p></div>
     <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
       <h3>Je dag, geregeld</h3><p>Agenda en weekkaart, reistijd-waarschuwing vóór je te laat vertrekt, en "Ik ben onderweg" of "Ik loop uit" in één tik — in de taal van de klant.</p></div>
     <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-      <h3>Van offerte tot betaald</h3><p>Offerte in minuten, factuur uit de klus zelf, en straks een QR-code waarmee de klant direct vanaf de factuur betaalt. Kent btw-verlegging.</p></div>
+      <h3>Van offerte tot betaald<span class="nieuw">NIEUW</span></h3><p>Offerte in minuten, factuur uit de klus zelf, en straks een QR-code waarmee de klant direct vanaf de factuur betaalt. Kent btw-verlegging.</p></div>
     <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.58 9M1.42 9a15.91 15.91 0 0 1 4.7-2.88M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg></div>
       <h3>Werkt ook in de kruipruimte</h3><p>Volledig offline te gebruiken. Geen bereik in de kelder? Alles werkt gewoon door en synchroniseert vanzelf zodra je weer boven bent.</p></div>
     <div class="feat rv"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -232,6 +274,10 @@
     <details class="rv"><summary>Kan ik maandelijks opzeggen?</summary><p>Ja. Geen jaarcontract, geen opzegtermijn-trucs. En tijdens de bèta betaal je helemaal niets.</p></details>
     <details class="rv"><summary>Is er een iPhone-versie?</summary><p>FABE start op Android; een iPhone-versie staat op de planning. Laat via <a href="mailto:info@getfabe.com">info@getfabe.com</a> weten dat je interesse hebt — dat bepaalt mee hoe snel hij er komt.</p></details>
     <details class="rv"><summary>Kent FABE btw-verlegging en Belgische én Nederlandse btw?</summary><p>Ja. FABE is voor de Benelux gebouwd, niet vertaald uit het Engels: btw-tarieven, btw-verlegging en documenten in het Nederlands en Frans zitten erin.</p></details>
+    <details class="rv"><summary>Wat kost software voor vakmensen?</summary><p>FABE kost <strong>€ 19 per maand</strong>, alles inbegrepen, zonder prijs per gebruiker. Vergelijkbare vakman-software in Duitsland en België begint rond € 60 per maand exclusief btw voor één kantoorgebruiker, en loopt op zodra er een extra gebruiker of een planbord bij komt. De goedkope factuurtools zijn wél goedkoper, maar die staan niet op de werf: geen foto's bij de klus, geen getekende werkbon, geen offline.</p></details>
+    <details class="rv"><summary>Vervangt FABE mijn boekhoudprogramma?</summary><p>Nee, en dat is met opzet. FABE maakt je offertes en facturen op de werf en houdt de wettelijk doorlopende nummering bij; je boekhouder of boekhoudpakket doet de rest. Je haalt alles eruit via <strong>UBL</strong> (het e-factuurformaat dat de meeste pakketten inlezen) en via een CSV-export.</p></details>
+    <details class="rv"><summary>Werkt het voor een klusbedrijf met een helper?</summary><p>Ja. Er is <strong>geen prijs per gebruiker</strong>: één abonnement van € 19 dekt je zaak. Wel een eerlijke beperking voor nu: gebruik voorlopig één account per toestel. Twee toestellen die tegelijk dezelfde klus bewerken, gaat goed, maar de laatste die synchroniseert wint — de app zegt dat dan ook met zoveel woorden, in plaats van het stil te laten gebeuren.</p></details>
+    <details class="rv"><summary>Voldoet FABE aan de factuureisen in Nederland en België?</summary><p>FABE is voor beide landen gebouwd: doorlopende factuurnummering per jaar, de btw-tarieven van NL en BE, <strong>btw-verlegging</strong> voor werk in onroerend goed, en UBL-bestanden die je via Peppol of je boekhouder kunt indienen. De verantwoordelijkheid voor je aangifte blijft bij jou en je boekhouder — FABE is een hulpmiddel, geen fiscaal advies.</p></details>
   </div>
 </div></section>
 
@@ -252,6 +298,10 @@
     <a href="/voorwaarden.html">Gebruiksvoorwaarden</a>
     <a href="/account-verwijderen.html">Account verwijderen</a>
     <a href="mailto:info@getfabe.com">info@getfabe.com</a>
+    <!-- Telefoon en WhatsApp: staan klaar, wachten op het zakelijke FABE-nummer.
+         Invullen = het nummer in beide href's zetten en class="wacht-op-nummer" weghalen. -->
+    <a class="wacht-op-nummer" data-todo="fabe-nummer" href="tel:">Bellen</a>
+    <a class="wacht-op-nummer" data-todo="fabe-nummer" href="https://wa.me/">WhatsApp</a>
   </div>
 </div></footer>
 

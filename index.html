@@ -4,13 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FABE — Bewijs, planning en facturen op de werf</title>
-<meta name="description" content="FABE bewijst wat je gedaan hebt. Planning, offertes, facturen, foto's en werkbonnen in één app voor de vakman met een eigen zaak in België en Nederland. Werkt ook zonder bereik. € 19 per maand, punt.">
+<meta name="description" content="FABE bewijst wat je gedaan hebt. Planning, offertes, facturen, foto's en werkbonnen in één app voor de vakman met een eigen zaak in België en Nederland. Werkt ook zonder bereik. € 24,95 per maand incl. btw, punt.">
 <meta property="og:title" content="FABE — Fix And Build Everywhere">
 <meta property="og:description" content="De app die bewijst wat je gedaan hebt. Voor de vakman met een eigen zaak in BE/NL. Werkt ook zonder bereik.">
 <style>
   :root{
     --bg:#141416; --bg2:#1C1C1E; --card:#232326; --line:#35353A;
     --gold:#B5862A; --gold2:#D8A93E; --text:#EDEDEF; --muted:#A2A2A7; --dim:#6F6F74;
+    /* --dim is decoratief (de tellertjes in de telefoonmockup) en mag onder AA
+       blijven; --dim-aa is voor LOPENDE TEKST en haalt 4,5:1 op zowel de
+       achtergrond (#141416, 5,33:1) als de prijskaart (#232326, 4,54:1). */
+    --dim-aa:#8A8A8A;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -43,7 +47,8 @@
   h1 em{font-style:normal;color:var(--gold2)}
   .lead{color:var(--muted);font-size:1.15rem;margin:20px 0 30px;max-width:52ch}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-  .cta-note{color:var(--dim);font-size:.85rem;margin-top:14px}
+  .cta-note{color:var(--dim-aa);font-size:.85rem;margin-top:14px}
+  .price-excl{color:var(--muted);font-size:.9rem;margin-top:-6px;margin-bottom:18px}
   .trust{display:flex;gap:10px 26px;flex-wrap:wrap;margin-top:36px;color:var(--muted);font-size:.9rem}
   .trust span{display:flex;align-items:center;gap:8px}
   .trust svg{width:15px;height:15px;flex:none}
@@ -105,7 +110,7 @@
   .price-right{padding:38px 34px}
   .tick{display:flex;gap:11px;margin-bottom:12px;color:var(--text);font-size:.96rem;align-items:flex-start}
   .tick svg{width:17px;height:17px;flex:none;margin-top:4px}
-  .compare{color:var(--dim);font-size:.85rem;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+  .compare{color:var(--dim-aa);font-size:.85rem;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
 
   /* FAQ */
   details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin-top:12px;overflow:hidden}
@@ -121,7 +126,10 @@
   .beta-band h2{margin:0 auto}
   .beta-band .sec-lead{margin:16px auto 30px}
 
-  footer{padding:44px 0 56px;color:var(--dim);font-size:.87rem}
+  /* Derde regel met hetzelfde gebrek, gevonden bij het nameten van de twee
+     die op de lijst stonden: de voettekst is lopende tekst op .87rem en zat
+     met --dim op 3,68:1. Zelfde reparatie, zelfde reden. */
+  footer{padding:44px 0 56px;color:var(--dim-aa);font-size:.87rem}
   .foot-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
   .foot-links{display:flex;gap:20px;flex-wrap:wrap}
   .foot-links a{color:var(--muted)} .foot-links a:hover{color:var(--gold2)}
@@ -177,7 +185,7 @@
       <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Maandelijks opzegbaar</li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Geen betaalgegevens nodig</li>
     </ul>
-    <p class="cta-note">Bèta is gratis · daarna € 19 per maand, alles inbegrepen</p>
+    <p class="cta-note">Bèta is gratis · daarna € 24,95 per maand incl. btw (€ 20,62 excl.), alles inbegrepen</p>
     <div class="trust">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Werkt volledig offline</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gegevens in de EU</span>
@@ -251,7 +259,8 @@
   <h2 class="rv">Eén prijs. Alles erin. Geen kleine lettertjes.</h2>
   <div class="price-card rv">
     <div class="price-left">
-      <div class="price-num">€ 19<small> / maand</small></div>
+      <div class="price-num">€ 24,95<small> / maand incl. btw</small></div>
+      <div class="price-excl">€ 20,62 per maand exclusief btw</div>
       <p class="price-sub">Vast bedrag. Geen prijs per gebruiker, geen limiet op klussen of facturen, geen verplicht jaarcontract.</p>
       <a class="btn" href="mailto:info@getfabe.com?subject=Ik%20wil%20de%20b%C3%A8ta%20testen">Start gratis in de bèta</a>
     </div>
@@ -274,9 +283,9 @@
     <details class="rv"><summary>Kan ik maandelijks opzeggen?</summary><p>Ja. Geen jaarcontract, geen opzegtermijn-trucs. En tijdens de bèta betaal je helemaal niets.</p></details>
     <details class="rv"><summary>Is er een iPhone-versie?</summary><p>FABE start op Android; een iPhone-versie staat op de planning. Laat via <a href="mailto:info@getfabe.com">info@getfabe.com</a> weten dat je interesse hebt — dat bepaalt mee hoe snel hij er komt.</p></details>
     <details class="rv"><summary>Kent FABE btw-verlegging en Belgische én Nederlandse btw?</summary><p>Ja. FABE is voor de Benelux gebouwd, niet vertaald uit het Engels: btw-tarieven, btw-verlegging en documenten in het Nederlands en Frans zitten erin.</p></details>
-    <details class="rv"><summary>Wat kost software voor vakmensen?</summary><p>FABE kost <strong>€ 19 per maand</strong>, alles inbegrepen, zonder prijs per gebruiker. Vergelijkbare vakman-software in Duitsland en België begint rond € 60 per maand exclusief btw voor één kantoorgebruiker, en loopt op zodra er een extra gebruiker of een planbord bij komt. De goedkope factuurtools zijn wél goedkoper, maar die staan niet op de werf: geen foto's bij de klus, geen getekende werkbon, geen offline.</p></details>
+    <details class="rv"><summary>Wat kost software voor vakmensen?</summary><p>FABE kost <strong>€ 24,95 per maand inclusief btw</strong> (€ 20,62 exclusief btw), alles inbegrepen, zonder prijs per gebruiker. Vergelijkbare vakman-software in Duitsland en België begint rond € 60 per maand exclusief btw voor één kantoorgebruiker, en loopt op zodra er een extra gebruiker of een planbord bij komt. De goedkope factuurtools zijn wél goedkoper, maar die staan niet op de werf: geen foto's bij de klus, geen getekende werkbon, geen offline.</p></details>
     <details class="rv"><summary>Vervangt FABE mijn boekhoudprogramma?</summary><p>Nee, en dat is met opzet. FABE maakt je offertes en facturen op de werf en houdt de wettelijk doorlopende nummering bij; je boekhouder of boekhoudpakket doet de rest. Je haalt alles eruit via <strong>UBL</strong> (het e-factuurformaat dat de meeste pakketten inlezen) en via een CSV-export.</p></details>
-    <details class="rv"><summary>Werkt het voor een klusbedrijf met een helper?</summary><p>Ja. Er is <strong>geen prijs per gebruiker</strong>: één abonnement van € 19 dekt je zaak. Wel een eerlijke beperking voor nu: gebruik voorlopig één account per toestel. Twee toestellen die tegelijk dezelfde klus bewerken, gaat goed, maar de laatste die synchroniseert wint — de app zegt dat dan ook met zoveel woorden, in plaats van het stil te laten gebeuren.</p></details>
+    <details class="rv"><summary>Werkt het voor een klusbedrijf met een helper?</summary><p>Ja. Er is <strong>geen prijs per gebruiker</strong>: één abonnement van € 24,95 per maand incl. btw dekt je zaak. Wel een eerlijke beperking voor nu: gebruik voorlopig één account per toestel. Twee toestellen die tegelijk dezelfde klus bewerken, gaat goed, maar de laatste die synchroniseert wint — de app zegt dat dan ook met zoveel woorden, in plaats van het stil te laten gebeuren.</p></details>
     <details class="rv"><summary>Voldoet FABE aan de factuureisen in Nederland en België?</summary><p>FABE is voor beide landen gebouwd: doorlopende factuurnummering per jaar, de btw-tarieven van NL en BE, <strong>btw-verlegging</strong> voor werk in onroerend goed, en UBL-bestanden (Peppol BIS 3.0) die je boekhouder of je boekhoudpakket inleest. <strong>Let op voor België:</strong> sinds 1 januari 2026 moet een factuur tussen twee Belgische btw-plichtige ondernemingen rechtstreeks via het Peppol-netwerk verstuurd worden. FABE maakt het bestand; het verzenden over Peppol zelf zit er nog niet in — dat loopt voorlopig via je boekhouder of je Peppol-dienstverlener. De verantwoordelijkheid voor je aangifte blijft bij jou en je boekhouder — FABE is een hulpmiddel, geen fiscaal advies.</p></details>
   </div>
 </div></section>

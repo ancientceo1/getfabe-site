@@ -1,0 +1,12 @@
+# getfabe.com -- alles mag geïndexeerd worden.
+#
+# Er staat niets op deze site dat verborgen hoort te blijven: vier pagina's,
+# geen inlog, geen klantgegevens. Een Disallow-regel zou hier dus alleen maar
+# iets uitsluiten wat we juist gevonden willen hebben.
+#
+# De Sitemap-regel is de reden dat dit bestand bestaat: hij is de enige manier
+# om een sitemap aan te melden zonder in Search Console te klikken.
+User-agent: *
+Allow: /
+
+Sitemap: https://getfabe.com/sitemap.xml

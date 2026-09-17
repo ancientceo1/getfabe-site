@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  De vier pagina's van getfabe.com, in EXACT dezelfde vorm als de canonicals
+  in de HTML: de homepage als "/", de rest met ".html".
+
+  Dat is geen smaak. GitHub Pages serveert elke pagina op twee adressen (met en
+  zonder ".html", allebei 200 en byte-identiek) en Search Console meldde op
+  16/09 "dubbele pagina zonder door de gebruiker geselecteerde canonieke
+  versie". Een sitemap die een ander adres noemt dan de canonical maakt die
+  melding erger in plaats van beter: dan wijzen we Google twee kanten op.
+
+  Geen <lastmod>: die zou bij elke wijziging met de hand bijgewerkt moeten
+  worden en veroudert dus stil. Een verkeerde datum is slechter dan geen datum.
+  Geen <priority> en <changefreq>: Google negeert ze sinds jaren.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://getfabe.com/</loc></url>
+  <url><loc>https://getfabe.com/privacy.html</loc></url>
+  <url><loc>https://getfabe.com/voorwaarden.html</loc></url>
+  <url><loc>https://getfabe.com/account-verwijderen.html</loc></url>
+</urlset>

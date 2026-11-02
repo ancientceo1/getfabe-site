@@ -50,7 +50,7 @@
   .cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
   .cta-note{color:var(--dim-aa);font-size:.85rem;margin-top:16px}
   .price-excl{color:var(--muted);font-size:.9rem;margin-top:4px;margin-bottom:18px}
-  .trust{display:flex;gap:12px 28px;flex-wrap:wrap;margin-top:36px;color:var(--muted);font-size:.9rem}
+  .trust{display:flex;gap:12px 28px;flex-wrap:wrap;margin-top:20px;color:var(--muted);font-size:.9rem}
   .trust span{display:flex;align-items:center;gap:8px}
   .trust svg{width:15px;height:15px;flex:none}
 
@@ -135,10 +135,6 @@
   .foot-links{display:flex;gap:20px;flex-wrap:wrap}
   .foot-links a{color:var(--muted)} .foot-links a:hover{color:var(--gold2)}
 
-  /* Microbeloften onder de CTA */
-  .beloften{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;padding:0;list-style:none}
-  .beloften li{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--muted);font-size:.85rem}
-  .beloften svg{width:13px;height:13px;flex:none}
 
   /* Vakkenstrook */
   .vakken{padding:44px 0;border-bottom:1px solid var(--line);background:var(--bg2)}
@@ -184,14 +180,12 @@
       <a class="btn ghost" href="tel:+31659143689">Bel of app me</a>
       <a class="btn ghost" href="#functies">Bekijk wat het doet</a>
     </div>
-    <ul class="beloften">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Binnen 5 minuten aan de slag</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Maandelijks opzegbaar</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Geen betaalgegevens nodig</li>
-    </ul>
     <p class="cta-note">Bèta is gratis · daarna €&nbsp;20,65 per maand excl. btw (€&nbsp;24,99 incl. btw), alles inbegrepen</p>
+    <!-- Unslop #6 (owner 2/11): één rij van vier beloftes in plaats van zeven in twee stijlen.
+         "Maandelijks opzegbaar" staat in het prijsblok; "Binnen 5 minuten" viel weg. -->
     <div class="trust">
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Werkt volledig offline</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Geen betaalgegevens nodig</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Gegevens in de EU</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Geen tracking, geen advertenties</span>
     </div>

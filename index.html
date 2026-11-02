@@ -64,8 +64,8 @@
   .chiprow{display:flex;gap:8px;margin:16px 0}
   .chip{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:8px 12px;flex:1;text-align:center}
   .chip b{display:block;color:var(--gold2);font-size:1rem}
-  .chip i{font-style:normal;color:var(--dim);font-size:.66rem}
-  .p-sec{color:var(--dim);font-size:.68rem;letter-spacing:1.4px;margin:16px 0 8px}
+  .chip i{font-style:normal;color:var(--dim-aa);font-size:.66rem}
+  .p-sec{color:var(--dim-aa);font-size:.68rem;letter-spacing:1.4px;margin:16px 0 8px}
   .job{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px}
   .job.urgent{border-left:3px solid #E0603E}
   .job-top{display:flex;justify-content:space-between;align-items:center}
@@ -143,8 +143,11 @@
   /* Vakkenstrook */
   .vakken{padding:44px 0;border-bottom:1px solid var(--line);background:var(--bg2)}
   .vakken p.sec-kicker{margin-bottom:16px}
-  .vaklijst{display:flex;gap:12px;flex-wrap:wrap;padding:0;margin:0;list-style:none}
-  .vaklijst li{border:1px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--text);font-size:.92rem;background:var(--card)}
+  /* Unslop 2/11: de vakken zijn een opsomming, geen knoppen -- geen pil, rand
+     of vlak meer, maar tekst met een stip ertussen. */
+  .vaklijst{display:flex;gap:8px 0;flex-wrap:wrap;padding:0;margin:0;list-style:none}
+  .vaklijst li{color:var(--text);font-size:1rem;font-weight:600}
+  .vaklijst li:not(:last-child)::after{content:"·";color:var(--dim-aa);margin:0 12px;font-weight:400}
   .vakken .naschrift{color:var(--muted);font-size:.85rem;margin-top:20px;max-width:62ch}
 
   /* Eén NIEUW-badge */

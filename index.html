@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#222224">
+<meta name="color-scheme" content="dark">
 <title>FABE — Werkt zonder bereik. € 20,65 per maand, alles erin.</title>
 <link rel="canonical" href="https://getfabe.com/">
 <meta name="description" content="FABE werkt op de werf, ook zonder bereik: planning, offertes, facturen, foto's en getekende werkbonnen in één app voor de vakman met een eigen zaak in België en Nederland. €&nbsp;20,65 per maand excl. btw (€&nbsp;24,99 incl.), alles erin.">
@@ -19,14 +21,19 @@
     --r-sm:8px; --r-md:12px; --r-lg:16px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  /* Beweging: één curve voor alles (sterke ease-out), kort. Een telefoon
+     zonder muis krijgt geen hover, wel een indruk-reactie op de knop. */
+  :root{--ease-out:cubic-bezier(.23,1,.32,1)}
+  html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  a,.btn,summary{touch-action:manipulation}
   body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;font-size:17px}
   a{color:var(--gold);text-decoration:none}
-  a:hover{text-decoration:underline;text-underline-offset:3px}
+  @media (hover:hover) and (pointer:fine){a:hover{text-decoration:underline;text-underline-offset:3px}}
   a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:var(--r-sm)}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
   .num{font-variant-numeric:tabular-nums}
+  picture{display:block}
 
   /* Navigatie */
   nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
@@ -35,12 +42,17 @@
   .mark{width:32px;height:32px;background:var(--gold);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;flex:none}
   .mark svg{width:20px;height:20px}
   .nav-links{display:flex;gap:24px;margin-left:auto;font-size:.95rem}
-  .nav-links a{color:var(--muted)} .nav-links a:hover{color:var(--text);text-decoration:none}
-  .btn{display:inline-flex;align-items:center;min-height:48px;background:var(--gold);color:var(--on-gold);font-weight:700;padding:12px 24px;border-radius:var(--r-md);transition:background-color .15s ease}
-  .btn:hover{background:#C4943A;text-decoration:none}
+  .nav-links a{color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;min-height:48px;background:var(--gold);color:var(--on-gold);font-weight:700;padding:12px 24px;border-radius:var(--r-md);transition:background-color .15s ease,border-color .15s ease,transform .12s var(--ease-out);-webkit-user-select:none;user-select:none}
+  .btn:active{transform:scale(.97)}
   .btn.small{min-height:40px;padding:8px 16px;font-size:.92rem}
   .btn.ghost{background:none;border:1px solid var(--line);color:var(--text)}
-  .btn.ghost:hover{border-color:var(--muted)}
+  @media (hover:hover) and (pointer:fine){
+    .nav-links a:hover{color:var(--text);text-decoration:none}
+    .btn:hover{background:#C4943A;text-decoration:none}
+    .btn.ghost:hover{background:none;border-color:var(--muted)}
+  }
+  @media (prefers-reduced-motion:reduce){.btn:active{transform:none}}
   @media(max-width:720px){.nav-links{display:none}}
 
   /* Openingsblok: de twee dingen die een vakman eerst wil weten. */
@@ -60,6 +72,19 @@
   .toestel img{display:block;width:100%;height:auto;border-radius:28px}
   @media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:48px;padding-bottom:48px}.toestel{width:260px}}
 
+  /* Binnenkomst van het openingsblok, één keer per bezoek: de kop eerst, dan
+     wat erbij hoort, het toestel komt mee omhoog. CSS-animatie, zodat hij ook
+     soepel loopt terwijl de pagina nog laadt; alles is meteen aan te tikken. */
+  @keyframes op{from{opacity:0;transform:translateY(var(--op,12px))}to{opacity:1;transform:none}}
+  .hero .kicker,.hero h1,.hero .lead,.hero .cta-row,.hero .feiten,.toestel{animation:op .56s var(--ease-out) both}
+  .hero .kicker{--op:6px}
+  .hero h1{animation-delay:40ms}
+  .hero .lead{--op:8px;animation-delay:110ms}
+  .hero .cta-row{--op:6px;animation-delay:160ms}
+  .hero .feiten{--op:0px;animation-delay:220ms}
+  .toestel{--op:20px;animation-duration:.7s;animation-delay:90ms}
+  @media (prefers-reduced-motion:reduce){.hero .kicker,.hero h1,.hero .lead,.hero .cta-row,.hero .feiten,.toestel{animation:none}}
+
   /* Secties */
   section{padding:80px 0;border-bottom:1px solid var(--line)}
   .sec-kicker{color:var(--muted);font-size:.85rem;letter-spacing:.12em;font-weight:600;text-transform:uppercase;margin-bottom:12px}
@@ -70,7 +95,11 @@
   /* Schermen uit de app */
   .schermen{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
   .schermen figure{margin:0}
-  .schermen img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r-lg)}
+  .schermen img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r-lg);transition:transform .2s var(--ease-out),border-color .2s ease}
+  /* De drie schermen komen kort na elkaar binnen (golf, geen rij). */
+  .schermen .rv:nth-child(2){transition-delay:70ms}
+  .schermen .rv:nth-child(3){transition-delay:120ms}
+  @media (hover:hover) and (pointer:fine){.schermen figure:hover img{transform:translateY(-4px);border-color:var(--muted)}}
   .schermen figcaption{color:var(--muted);font-size:.92rem;margin-top:12px}
   .schermen figcaption b{color:var(--text);display:block;font-weight:600}
   @media(max-width:860px){.schermen{grid-template-columns:1fr 1fr}}
@@ -131,7 +160,7 @@
   .foot-links a{color:var(--muted)} .foot-links a:hover{color:var(--text)}
 
   /* Rustig binnenkomen bij het scrollen; niet bij "minder beweging". */
-  .rv{opacity:0;transform:translateY(8px);transition:opacity .35s ease-out,transform .35s ease-out}
+  .rv{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
   .rv.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
@@ -161,7 +190,7 @@
       <div><dt>Opzeggen</dt><dd>Maandelijks</dd></div>
     </dl>
   </div>
-  <div class="toestel"><img src="img/vandaag.png" width="1080" height="1920" alt="Het scherm Vandaag in FABE: de klussen van vandaag met tijd en status, en wat er nog moet gebeuren."></div>
+  <div class="toestel"><picture><source type="image/webp" srcset="img/vandaag-600.webp 600w, img/vandaag-900.webp 900w" sizes="(max-width:860px) 260px, 300px"><img src="img/vandaag.png" width="1080" height="1920" fetchpriority="high" alt="Het scherm Vandaag in FABE: de klussen van vandaag met tijd en status, en wat er nog moet gebeuren."></picture></div>
 </div></header>
 
 <section id="schermen"><div class="wrap">
@@ -169,9 +198,9 @@
   <h2 class="rv">Zo ziet je werkdag eruit</h2>
   <p class="sec-lead rv">Schermafdrukken uit FABE zelf, met verzonnen klanten.</p>
   <div class="schermen">
-    <figure class="rv"><img src="img/klus.png" width="1080" height="1920" loading="lazy" alt="Een klus in FABE met klant, adres, tijd en de knop om de klus af te ronden."><figcaption><b>De klus</b>Klant, adres, foto's en werkbon op één plek.</figcaption></figure>
-    <figure class="rv"><img src="img/agenda.png" width="1080" height="1920" loading="lazy" alt="De agenda in FABE met geplande klussen per dag."><figcaption><b>De agenda</b>Wat er gepland staat, en wat nog geen dag heeft.</figcaption></figure>
-    <figure class="rv"><img src="img/betalen.png" width="1080" height="1920" loading="lazy" alt="Een factuur in FABE met een betaal-QR-code voor de klant."><figcaption><b>Betaald worden</b>De klant scant de QR-code en betaalt meteen.</figcaption></figure>
+    <figure class="rv"><picture><source type="image/webp" srcset="img/klus-600.webp 600w, img/klus-900.webp 900w" sizes="(max-width:560px) calc(100vw - 48px), (max-width:860px) calc(50vw - 36px), 328px"><img src="img/klus.png" width="1080" height="1920" loading="lazy" decoding="async" alt="Een klus in FABE met klant, adres, tijd en de knop om de klus af te ronden."></picture><figcaption><b>De klus</b>Klant, adres, foto's en werkbon op één plek.</figcaption></figure>
+    <figure class="rv"><picture><source type="image/webp" srcset="img/agenda-600.webp 600w, img/agenda-900.webp 900w" sizes="(max-width:560px) calc(100vw - 48px), (max-width:860px) calc(50vw - 36px), 328px"><img src="img/agenda.png" width="1080" height="1920" loading="lazy" decoding="async" alt="De agenda in FABE met geplande klussen per dag."></picture><figcaption><b>De agenda</b>Wat er gepland staat, en wat nog geen dag heeft.</figcaption></figure>
+    <figure class="rv"><picture><source type="image/webp" srcset="img/betalen-600.webp 600w, img/betalen-900.webp 900w" sizes="(max-width:560px) calc(100vw - 48px), (max-width:860px) calc(50vw - 36px), 328px"><img src="img/betalen.png" width="1080" height="1920" loading="lazy" decoding="async" alt="Een factuur in FABE met een betaal-QR-code voor de klant."></picture><figcaption><b>Betaald worden</b>De klant scant de QR-code en betaalt meteen.</figcaption></figure>
   </div>
 </div></section>
 

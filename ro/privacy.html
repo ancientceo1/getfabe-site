@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politica de confidențialitate — FABE</title>
+<link rel="canonical" href="https://getfabe.com/ro/privacy.html">
+<meta name="robots" content="index,follow">
+<style>
+  :root { --bg:#1C1C1E; --gold:#B5862A; --text:#EDEDEF; --muted:#9A9A9D; --card:#2A2A2C; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.7; }
+  .wrap { max-width:720px; margin:0 auto; padding:48px 24px; }
+  a { color:var(--gold); }
+  h1 { color:var(--gold); font-size:1.8rem; margin-bottom:4px; }
+  .version { color:var(--muted); font-size:.9rem; margin-bottom:32px; }
+  h2 { color:var(--gold); font-size:1.15rem; margin:32px 0 8px; }
+  p, li { color:var(--text); margin-bottom:12px; }
+  ul { padding-left:20px; margin-bottom:12px; }
+  .muted { color:var(--muted); }
+  footer { border-top:1px solid #3D3D41; margin-top:48px; padding-top:24px; color:var(--muted); font-size:.85rem; }
+  footer a { color:var(--gold); text-decoration:none; }
+  .disclaimer { background:var(--card); border-left:3px solid var(--gold); padding:12px 16px; margin-bottom:32px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="disclaimer">Traducere cu titlu informativ. În caz de diferențe, prevalează textul în limba neerlandeză: <a href="/privacy.html" hreflang="nl">getfabe.com/privacy.html</a>.</p>
+  <section id="ro" lang="ro">
+  <h1>Politica de confidențialitate FABE</h1>
+  <p class="version">Versiunea 0.8 — noiembrie 2026</p>
+
+  <h2>1. Cine este responsabil</h2>
+  <p>FABE este un produs al <strong>ABACOR plus services</strong>, cu sediul la Zonnestein 196, 3332 NX Zwijndrecht (Țările de Jos), înregistrată la Camera de Comerț (Kamer van Koophandel) sub numărul <strong>96044268</strong>, cod de TVA <strong>NL005185918B10</strong>.</p>
+  <p>Contact pentru întrebări despre confidențialitate: <a href="mailto:privacy@getfabe.com">privacy@getfabe.com</a></p>
+
+  <h2>2. Două tipuri de date — și două roluri</h2>
+  <p><strong>A. Date despre tine ca utilizator FABE</strong> (adresa ta de e-mail și datele contului, din momentul în care folosești sincronizarea în cloud, datele firmei tale din aplicație și starea abonamentului tău). Pentru acestea, ABACOR plus services este operatorul de date.</p>
+  <p><strong>B. Date pe care tu, ca meseriaș, le introduci despre propriii tăi clienți</strong> (nume, adresă, număr de telefon, poze de la o lucrare, semnături, oferte și facturi). Pentru acestea, operatorul de date ești <strong>tu</strong>; ABACOR plus services acționează ca persoană împuternicită și oferă doar software-ul și stocarea. Datele sunt și rămân ale tale și ale clientului tău.</p>
+
+  <h2>3. Ce date prelucrează FABE și unde</h2>
+  <p><strong>Local, pe telefonul tău.</strong> FABE este construită local-întâi: aplicația funcționează complet fără internet, iar administrația ta (clienți, lucrări, oferte, facturi, notițe, poze, semnături, note vocale, timp lucrat, evidența drumurilor) stă în primul rând pe propriul tău telefon.</p>
+  <p><strong>Sincronizare în cloud (cu cont).</strong> Dacă îți faci un cont, administrația ta — inclusiv notițe, poze, semnături și note vocale — este trimisă criptat către și stocată pe servere Supabase din <strong>Uniunea Europeană</strong> (regiunea Frankfurt, Germania), ca datele tale să fie în siguranță dacă îți pierzi telefonul și să fie disponibile pe un telefon nou. Un cont nu este obligatoriu pentru a folosi aplicația.</p>
+  <p><strong>Conectarea cu programul tău de contabilitate (Moneybird).</strong> Dacă îți conectezi chiar tu, în FABE, administrația Moneybird, FABE trimite acolo facturile tale trimise: datele facturii, factura ca pdf și, de la clientul tău, numele, adresa, țara și codul de TVA. Numărul de telefon și adresa de e-mail ale clientului nu sunt trimise. Pentru asta, pdf-ul stă scurt timp pe serverul nostru din UE (Supabase, Frankfurt), până ajunge în Moneybird. Apoi îl ștergem. Accesul tău la Moneybird îl păstrăm criptat pe acel server. Dacă deconectezi sau îți ștergi contul, retragem acest acces și ștergem pdf-urile care nu fuseseră încă trimise. Ce a ajuns o dată în Moneybird intră sub înțelegerile tale cu Moneybird.</p>
+  <p><strong>Abonament și plată (FABE Pro).</strong> Dacă iei FABE Pro, plătești prin Google Play. Google prelucrează plata; datele tale de plată nu ajung la noi. Ca să știm cine are FABE Pro, folosim RevenueCat (RevenueCat, Inc., Statele Unite). RevenueCat primește de la Google Play și de la aplicație doar ce ține de cumpărare: ce abonament, data cumpărării și data expirării, dacă ești în perioada de probă, țara și moneda, și un număr după care îți recunoaștem contul. Fără nume, fără adresă de e-mail, fără date despre clienți. RevenueCat ne comunică starea abonamentului tău; pe aceasta o păstrăm pe serverul nostru din UE (Supabase, Frankfurt), legată de contul tău, și o ștergem odată cu contul tău. Anularea o faci în Google Play. Vezi <a href="https://www.revenuecat.com/privacy/">politica de confidențialitate a RevenueCat</a>.</p>
+  <p><strong>Funcții de hartă și timp de drum.</strong> Pentru afișarea hărții, geocodare și timpi de drum, adresele pe care le introduci sunt trimise prin serverul nostru din UE către Google Maps, fără numele sau contul tău. FABE nu folosește urmărire GPS în fundal; locația ta în timp real nu este urmărită și nici stocată. Vezi <a href="https://policies.google.com/privacy">politica de confidențialitate a Google</a>.</p>
+  <p><strong>Vremea și locația aproximativă.</strong> Aplicația poate afișa vremea actuală în partea de sus a prezentării zilei. Pentru asta, poți da aplicației permisiunea pentru locația ta <em>aproximativă</em> (precizie de aproximativ 1 km); locația GPS precisă și locația în fundal nu sunt folosite și sunt blocate tehnic în aplicație. Pentru prognoza meteo sunt trimise doar coordonatele locației tale — fără cont sau identificare — către serviciul meteo Open-Meteo. Numele localității afișat lângă vreme îl obține telefonul tău singur, prin propriul serviciu de localizare (pe Android, prin Google). Locația ta nu este stocată pe serverele noastre și nici sincronizată; doar ultima prognoză meteo este păstrată local pe telefonul tău. Dacă nu dai permisiunea, aplicația folosește localitatea sediului din profilul firmei tale; această localitate este căutată la Open-Meteo pentru a găsi vremea corespunzătoare.</p>
+  <p><strong>Vorbire pe care telefonul tău nu o poate transforma singur (cu cont).</strong> Dacă folosești butonul de microfon din ecranul de traducere și telefonul tău nu poate transforma singur propoziția rostită în text, FABE îți cere o singură dată permisiunea de a trimite acel fragment audio prin serverul nostru din UE (Supabase, Frankfurt) către Google Cloud Speech-to-Text în UE. Google îl transformă în text și îl trimite înapoi. Fragmentul și textul nu sunt păstrate și nu sunt folosite pentru antrenarea modelelor; înregistrarea este ștearsă de pe telefonul tău imediat după aceea. Fără internet sau fără cont, acest lucru nu se întâmplă. Permisiunea o poți retrage din Setări → Modele de limbă. Dacă vorbește clientul tău, acesta vede dinainte, în propria limbă, că vocea lui este transformată astfel.</p>
+  <p><strong>Camera și cardurile de reducere.</strong> FABE folosește camera în două feluri: pentru a face poze la o lucrare sau la un bon de materiale și pentru a scana codul de bare al unui card de client de la un magazin de bricolaj. La scanare <strong>nu este stocată și nici trimisă nicio poză</strong> — imaginea rămâne în memoria telefonului tău și doar codul citit este păstrat. Cardurile în sine (magazin, nume și cod) stau pe telefonul tău, intră în backupul tău și, cu un cont, sunt sincronizate la fel ca restul administrației tale. Nu sunt niciodată partajate cu magazinul sau cu altă parte; FABE nu trimite nimic din ele în afară.</p>
+  <p><strong>Raportarea erorilor.</strong> La o eroare tehnică, aplicația trimite un raport de eroare către Sentry (raportare de blocări, prelucrare în UE). Aceste rapoarte sunt curățate de date personale: numele, adresele, numerele de telefon, numerele de cont și sumele sunt eliminate înainte ca raportul să fie trimis. FABE nu folosește urmărire, nu afișează reclame și nu vinde date.</p>
+  <p><strong>Numărătoare săptămânală.</strong> Pentru a vedea cum este folosit FABE, numărăm în fiecare săptămână câte conturi s-au adăugat, câți utilizatori au trimis o factură pentru prima dată și câți au FABE Pro (interes legitim); vedem doar aceste numere, niciodată cine sunt utilizatorii sau ce scrie pe o factură.</p>
+  <p><strong>E-mail.</strong> E-mailurile de cont (confirmare, resetarea parolei) sunt trimise prin Resend (trimitere din UE) de pe domeniul getfabe.com.</p>
+
+  <h2>4. Temeiul legal</h2>
+  <ul>
+    <li>Folosirea aplicației și stocarea locală: executarea contractului.</li>
+    <li>Sincronizarea în cloud și e-mailurile de cont: executarea contractului.</li>
+    <li>Funcțiile de hartă și timp de drum: executarea contractului (le activezi tu, introducând o adresă).</li>
+    <li>Abonamentul și plata prin Google Play și RevenueCat: executarea contractului.</li>
+    <li>Transformarea vorbirii prin Google Cloud Speech-to-Text când telefonul tău nu o poate face singur: consimțământ (retras din Setări → Modele de limbă).</li>
+    <li>Vremea pe baza locației tale aproximative: consimțământ (retras din setările aplicației sau ale sistemului; fără consimțământ se folosește localitatea sediului).</li>
+    <li>Camera pentru poze și scanarea unui card de reducere: executarea contractului; permisiunea de sistem o ceri tu și o poți retrage din setările aplicației sau ale sistemului.</li>
+    <li>Raportarea erorilor: interes legitim (o aplicație care funcționează și e sigură), cu minimizarea datelor, așa cum este descrisă mai sus.</li>
+  </ul>
+
+  <h2>5. Perioada de păstrare și ștergerea</h2>
+  <p>FABE arhivează în loc să șteargă pe tăcute, ca administrația ta — inclusiv dovezile la o dispută — să nu se piardă din greșeală. Îți poți șterge complet datele locale prin „Ia-o de la capăt” din aplicație; îți poți exporta datele printr-un backup.</p>
+  <p><strong>După încheierea abonamentului.</strong> Când FABE Pro se oprește (anulat sau expirat), îți mai păstrăm toate datele 30 de zile. După aceea le ștergem definitiv: contul, datele din cloud și fișierele din spațiul nostru de stocare, iar o eventuală conexiune cu Moneybird o revocăm. Copiile de rezervă sunt goale în cel mult 30 de zile după aceea. Primești un e-mail la încheierea abonamentului, cu 7 zile și cu 1 zi înainte de ștergere, de fiecare dată cu data exactă și un buton pentru a descărca totul; aplicația afișează același mesaj. Dacă reiei FABE Pro înainte de acea dată, nu ștergem nimic. Pentru datele clienților tăi, FABE este persoană împuternicită; obligația legală de a păstra facturile (7 ani în Țările de Jos, 10 ani în Belgia) îți revine ție.</p>
+  <p>Contul și datele din cloud le poți șterge din aplicație (Setări → Cont și backup → Șterge contul) sau prin <a href="/account-verwijderen.html">getfabe.com/account-verwijderen</a>; noi îți ștergem contul și datele aferente, inclusiv starea abonamentului, cu excepția datelor pe care legea ne obligă să le păstrăm. Abonamentul îl anulezi în Google Play; ștergerea contului nu îl anulează automat.<span class="muted"> Atenție: pentru propria ta administrație se aplică obligații legale de păstrare (în Țările de Jos, de regulă 7 ani) — exportul administrației tale înainte de ștergere este responsabilitatea ta.</span></p>
+
+  <h2>6. Partajarea cu terți</h2>
+  <p>Nu vindem date. Datele sunt partajate doar cu persoanele împuternicite necesare pentru furnizarea serviciului: Supabase (stocare/sincronizare, UE), Google (funcții de hartă și timp de drum; descărcarea modelelor de limbă pentru ecranul de traducere; recunoașterea vocală a Android când folosești butonul de microfon, caz în care înregistrarea poate ajunge la Google; doar dacă telefonul tău nu o poate face singur și ți-ai dat consimțământul pentru asta, Google Cloud Speech-to-Text în UE, fără stocare; Google Play pentru plata abonamentului tău; și numele localității de lângă vreme, prin serviciul de localizare al telefonului tău), RevenueCat (starea abonamentului tău, Statele Unite), Open-Meteo (prognoza meteo pe baza coordonatelor, fără cont sau identificare), Sentry (raportarea erorilor) și Resend (e-mail de cont).</p>
+  <p><strong>Moneybird</strong>, doar dacă pornești tu conectarea și către administrația pe care o alegi tu: datele facturilor, pdf-urile facturilor și numele, adresa, țara și codul de TVA ale clienților tăi.</p>
+
+  <h2>7. Drepturile tale</h2>
+  <p>Ai dreptul de acces, rectificare, ștergere, restricționarea prelucrării, portabilitatea datelor și opoziție. Contactează-ne la <a href="mailto:privacy@getfabe.com">privacy@getfabe.com</a>. Poți depune și o plângere la <a href="https://www.autoriteitpersoonsgegevens.nl">Autoriteit Persoonsgegevens</a> (Țările de Jos) sau la <a href="https://www.gegevensbeschermingsautoriteit.be">Gegevensbeschermingsautoriteit</a> (Belgia).</p>
+
+  <h2>8. Copii</h2>
+  <p>FABE este o aplicație profesională pentru meseriași și nu se adresează copiilor sub 18 ani. Nu colectăm cu bună știință date ale minorilor.</p>
+
+  <h2>9. Securitate</h2>
+  <p>Datele de pe telefonul tău sunt protejate de securitatea telefonului tău. La sincronizarea în cloud, tot traficul este trimis criptat (TLS) și stocat criptat; accesul la servere este limitat și separat pe utilizator (row level security).</p>
+
+  <h2>10. Modificări</h2>
+  <p>Putem modifica această politică. Versiunea și data din partea de sus arată când a fost actualizată ultima dată. La modificări importante, îți cerem din nou acordul în aplicație.</p>
+  </section>
+
+  <footer>
+    <p><a href="/">← getfabe.com</a> · <a href="/ro/voorwaarden.html">Condiții de utilizare</a></p>
+    <p>ABACOR plus services · Zonnestein 196, 3332 NX Zwijndrecht (NL) · KvK 96044268 · BTW NL005185918B10</p>
+  </footer>
+</div>
+</body>
+</html>

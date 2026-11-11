@@ -62,9 +62,11 @@
   h1{font-size:clamp(2.2rem,4.8vw,3.5rem);line-height:1.08;font-weight:700;letter-spacing:-.02em;max-width:16ch}
   .lead{color:var(--muted);font-size:1.15rem;margin:24px 0 32px;max-width:52ch}
   .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-  .feiten{display:grid;grid-template-columns:repeat(3,auto);gap:8px 32px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line);justify-content:start}
-  .feiten dt{color:var(--muted);font-size:.85rem}
-  .feiten dd{font-weight:700;font-size:1.05rem}
+  /* Vier feiten: één rij als de tekstkolom breed genoeg is, anders 2 × 2 (nooit 3 + 1). */
+  .feiten{display:grid;grid-template-columns:repeat(2,auto);gap:12px 32px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line);justify-content:start}
+  .feiten dt{color:var(--muted);font-size:.85rem;white-space:nowrap}
+  .feiten dd{font-weight:700;font-size:1.05rem;white-space:nowrap}
+  @media(min-width:640px) and (max-width:860px),(min-width:1100px){.feiten{grid-template-columns:repeat(4,auto);gap:8px 28px}}
   @media(max-width:560px){.feiten{grid-template-columns:1fr 1fr}}
 
   /* Toestel: een echte schermafdruk in een eenvoudige rand. */
@@ -129,6 +131,7 @@
   .price-num{font-size:3.4rem;font-weight:800;line-height:1;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
   .price-num small{display:block;margin-top:8px;line-height:1.3;font-size:1.05rem;color:var(--muted);font-weight:400;letter-spacing:0}
   .price-excl{color:var(--text);font-size:.95rem;margin-top:12px}
+  .price-jaar{color:var(--muted);font-size:.95rem;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
   .price-sub{color:var(--muted);margin:12px 0 24px}
   .price-right{padding:40px 32px}
   .tick{display:flex;gap:12px;margin-bottom:12px;font-size:.98rem;align-items:flex-start}
@@ -188,7 +191,7 @@
       <div><dt>Prijs incl. btw</dt><dd class="num">€&nbsp;24,99 / maand</dd></div>
       <div><dt>Jaarprijs incl. btw</dt><dd class="num">€&nbsp;249,90 / jaar</dd></div>
       <div><dt>Offline</dt><dd>Volledig</dd></div>
-      <div><dt>Opzeggen</dt><dd>Maandelijks</dd></div>
+      <div><dt>Looptijd</dt><dd>Maand of jaar</dd></div>
     </dl>
   </div>
   <div class="toestel"><picture><source type="image/webp" srcset="img/vandaag-600.webp 600w, img/vandaag-900.webp 900w" sizes="(max-width:860px) 260px, 300px"><img src="img/vandaag.png" width="1080" height="1920" fetchpriority="high" alt="Het scherm Vandaag in FABE: de klussen van vandaag met tijd en status, en wat er nog moet gebeuren."></picture></div>
@@ -263,9 +266,8 @@
     <div class="price-left">
       <div class="price-num">€&nbsp;20,65<small>per maand excl. btw</small></div>
       <div class="price-excl num">€&nbsp;24,99 per maand inclusief btw</div>
-      <div class="price-num" style="margin-top:32px">€&nbsp;206,53<small>per jaar excl. btw</small></div>
-      <div class="price-excl num">€&nbsp;249,90 per jaar inclusief btw: €&nbsp;49,98 minder dan 12 × €&nbsp;24,99</div>
-      <p class="price-sub">Vast bedrag. Geen prijs per gebruiker, geen limiet op klussen of facturen, geen verplicht jaarcontract.</p>
+      <p class="price-jaar num">Of per jaar: €&nbsp;206,53 excl. btw (€&nbsp;249,90 incl.), €&nbsp;49,98 minder dan 12&nbsp;×&nbsp;€&nbsp;24,99.</p>
+      <p class="price-sub">Vast bedrag. Geen prijs per gebruiker, geen limiet op klussen of facturen.</p>
       <a class="btn" href="mailto:info@getfabe.com?subject=Ik%20wil%20de%20b%C3%A8ta%20testen">Start gratis in de bèta</a>
     </div>
     <div class="price-right">
@@ -273,7 +275,7 @@
       <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#ADADB0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Onbeperkt klanten, klussen, offertes en facturen</div>
       <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#ADADB0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Foto's, handtekeningen en spraakmemo's inbegrepen</div>
       <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#ADADB0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Cloudback-up in de EU inbegrepen</div>
-      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#ADADB0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Maandelijks opzegbaar, je gegevens neem je mee</div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#ADADB0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Maandplan maandelijks opzegbaar, jaarplan per jaar. Je gegevens neem je mee</div>
       <p class="compare">Een eenvoudige factuurtool kan goedkoper zijn, maar die staat niet op de werf: geen foto's bij de klus, geen getekende werkbon, geen offline.</p>
     </div>
   </div>
@@ -286,7 +288,7 @@
   <div style="max-width:760px;margin-top:32px;border-top:1px solid var(--line)">
     <details class="rv"><summary>Werkt FABE echt zonder internet?</summary><p>Ja, volledig. FABE is lokaal-eerst gebouwd: alles staat op je eigen telefoon en de app heeft geen verbinding nodig om te werken. Zodra er weer bereik is, synchroniseert alles vanzelf naar je beveiligde cloudback-up.</p></details>
     <details class="rv"><summary>Van wie zijn mijn gegevens?</summary><p>Van jou. Je administratie staat op je eigen toestel en, met een account, versleuteld op servers in de EU (Frankfurt). Wij verkopen geen gegevens, tonen geen advertenties en gebruiken geen tracking. Stap je eruit, dan neem je alles mee via de export.</p></details>
-    <details class="rv"><summary>Kan ik maandelijks opzeggen?</summary><p>Ja. Geen jaarcontract, geen opzegtermijn-trucs. En tijdens de bèta betaal je helemaal niets.</p></details>
+    <details class="rv"><summary>Kan ik maandelijks opzeggen?</summary><p>Met het maandplan wel: je zegt per maand op, zonder opzegtermijn-trucs. Het jaarplan loopt per jaar. En tijdens de bèta betaal je helemaal niets.</p></details>
     <details class="rv"><summary>Is er een iPhone-versie?</summary><p>FABE start op Android; een iPhone-versie staat op de planning. Laat via <a href="mailto:info@getfabe.com">info@getfabe.com</a> weten dat je interesse hebt. Dat bepaalt mee hoe snel hij er komt.</p></details>
     <details class="rv"><summary>Kent FABE btw-verlegging en Belgische én Nederlandse btw?</summary><p>Ja. FABE is voor de Benelux gebouwd, niet vertaald uit het Engels: btw-tarieven, btw-verlegging en documenten in het Nederlands en Frans zitten erin.</p></details>
     <details class="rv"><summary>Wat kost software voor vakmensen?</summary><p>FABE kost <strong>€&nbsp;20,65 per maand exclusief btw</strong> (€&nbsp;24,99 inclusief btw), of <strong>€&nbsp;206,53 per jaar exclusief btw</strong> (€&nbsp;249,90 inclusief btw, €&nbsp;49,98 minder dan 12 × €&nbsp;24,99), alles inbegrepen, zonder prijs per gebruiker en zonder limiet op klussen of facturen. Een eenvoudige factuurtool kan goedkoper zijn, maar die staat niet op de werf: geen foto's bij de klus, geen getekende werkbon, geen offline.</p></details>

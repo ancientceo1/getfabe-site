@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Moneybird koppelen · FABE</title>
+<style>
+  :root { --bg:#1C1C1E; --gold:#B5862A; --text:#EDEDEF; --muted:#9A9A9D; --card:#2A2A2C; --line:#3D3D41; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.6; }
+  .wrap { max-width:640px; margin:0 auto; padding:40px 20px 56px; }
+  a { color:var(--gold); }
+  h1 { color:var(--gold); font-size:1.7rem; margin-bottom:6px; }
+  p { margin-top:14px; }
+  .adres { margin-top:18px; padding:16px; border-radius:10px; background:var(--card); border:1px solid var(--line); font-size:1.25rem; font-weight:700; overflow-wrap:anywhere; }
+  .uitleg { color:var(--muted); }
+  button { margin-top:20px; width:100%; min-height:52px; border-radius:10px; font:inherit; font-size:1.05rem; font-weight:700; cursor:pointer; }
+  #ja { border:0; background:var(--gold); color:#1C1C1E; margin-top:28px; }
+  #nee { background:transparent; color:var(--text); border:1px solid var(--line); margin-top:12px; }
+  button[disabled] { opacity:.6; cursor:default; }
+  [hidden] { display:none !important; }
+  footer { border-top:1px solid var(--line); margin-top:44px; padding-top:20px; color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 data-t="titel">Moneybird koppelen</h1>
+  <p id="bezig" data-t="bezig">Even kijken…</p>
+
+  <div id="vraag" hidden>
+    <p data-t="vraag">Je koppelt Moneybird aan dit FABE-account:</p>
+    <div class="adres" id="adres"></div>
+    <p class="uitleg" data-t="uitleg">Is dit jouw e-mailadres? Kies dan Ja. Ken je dit adres niet, of kreeg je deze link van iemand anders? Kies Nee. Dan wordt er niets gekoppeld.</p>
+    <button type="button" id="ja" data-t="ja">Ja, dit is mijn account</button>
+    <button type="button" id="nee" data-t="nee">Nee, niet koppelen</button>
+  </div>
+
+  <p id="melding" role="status" hidden></p>
+
+  <footer>
+    <p><a href="/">← getfabe.com</a> · <a href="/privacy.html" data-t="privacy">Privacybeleid</a></p>
+  </footer>
+</div>
+<script>
+(function () {
+  var URL_FUNCTIE = 'https://cmmcqqpmkmjsousndthx.supabase.co/functions/v1/moneybird-koppelen';
+  var T = {
+    nl: {
+      gekoppeld: 'Moneybird is gekoppeld aan FABE. Je kunt dit venster sluiten en teruggaan naar de app.',
+      kiezen: 'Je bent ingelogd bij Moneybird. Ga terug naar FABE en kies daar naar welke administratie je facturen moeten.',
+      geweigerd: 'Er is niets gekoppeld. Je kunt dit venster sluiten.',
+      geen_administratie: 'Je Moneybird-login heeft geen administratie. Maak er eerst een aan in Moneybird en koppel daarna opnieuw vanuit FABE.',
+      mislukt: 'Koppelen met Moneybird lukte niet. Ga terug naar FABE en probeer het opnieuw.',
+      verlopen: 'Deze link is verlopen of al gebruikt. Ga terug naar FABE en koppel opnieuw.'
+    },
+    fr: {
+      titel: 'Relier Moneybird', bezig: 'Un instant…',
+      vraag: 'Vous reliez Moneybird à ce compte FABE :',
+      uitleg: 'Est-ce votre adresse e-mail ? Choisissez alors Oui. Vous ne connaissez pas cette adresse, ou quelqu’un d’autre vous a envoyé ce lien ? Choisissez Non. Rien ne sera relié.',
+      ja: 'Oui, c’est mon compte', nee: 'Non, ne pas relier', privacy: 'Confidentialité',
+      gekoppeld: 'Moneybird est relié à FABE. Vous pouvez fermer cette fenêtre et revenir à l’application.',
+      kiezen: 'Vous êtes connecté à Moneybird. Revenez à FABE et choisissez l’administration qui doit recevoir vos factures.',
+      geweigerd: 'Rien n’est relié. Vous pouvez fermer cette fenêtre.',
+      geen_administratie: 'Votre compte Moneybird n’a pas d’administration. Créez-en une dans Moneybird, puis reliez à nouveau depuis FABE.',
+      mislukt: 'La liaison avec Moneybird a échoué. Revenez à FABE et réessayez.',
+      verlopen: 'Ce lien a expiré ou a déjà été utilisé. Revenez à FABE et reliez à nouveau.'
+    },
+    en: {
+      titel: 'Connect Moneybird', bezig: 'One moment…',
+      vraag: 'You are connecting Moneybird to this FABE account:',
+      uitleg: 'Is this your email address? Then choose Yes. Don’t know this address, or did someone else send you this link? Choose No. Nothing will be connected.',
+      ja: 'Yes, this is my account', nee: 'No, don’t connect', privacy: 'Privacy',
+      gekoppeld: 'Moneybird is connected to FABE. You can close this window and go back to the app.',
+      kiezen: 'You are signed in to Moneybird. Go back to FABE and choose which administration your invoices should go to.',
+      geweigerd: 'Nothing is connected. You can close this window.',
+      geen_administratie: 'Your Moneybird login has no administration. Create one in Moneybird first, then connect again from FABE.',
+      mislukt: 'Connecting to Moneybird failed. Go back to FABE and try again.',
+      verlopen: 'This link has expired or was already used. Go back to FABE and connect again.'
+    }
+  };
+
+  var p = new URLSearchParams(location.search);
+  var taal = T[p.get('taal')] ? p.get('taal') : 'nl';
+  document.documentElement.lang = taal;
+  if (taal !== 'nl') {
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var k = el.getAttribute('data-t');
+      if (T[taal][k]) el.textContent = T[taal][k];
+    });
+  }
+
+  // Het token staat in het fragment (gaat nooit naar de server van de site);
+  // meteen uit de adresbalk en de geschiedenis.
+  var token = new URLSearchParams(location.hash.slice(1)).get('t');
+  history.replaceState(null, '', location.pathname + location.search);
+
+  var bezig = document.getElementById('bezig');
+  var vraag = document.getElementById('vraag');
+  var melding = document.getElementById('melding');
+  var ja = document.getElementById('ja');
+  var nee = document.getElementById('nee');
+
+  function toon(sleutel) {
+    bezig.hidden = true; vraag.hidden = true;
+    melding.textContent = T[taal][sleutel] || T[taal].mislukt;
+    melding.hidden = false;
+  }
+
+  function vraagFunctie(body) {
+    return fetch(URL_FUNCTIE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json(); });
+  }
+
+  if (!token) { toon('verlopen'); return; }
+
+  vraagFunctie({ bevestig: token })
+    .then(function (j) {
+      if (!j.email) { toon(j.fout === 'verlopen' ? 'verlopen' : 'mislukt'); return; }
+      document.getElementById('adres').textContent = j.email;
+      bezig.hidden = true; vraag.hidden = false;
+    })
+    .catch(function () { toon('mislukt'); });
+
+  function kies(antwoord) {
+    ja.disabled = true; nee.disabled = true;
+    vraagFunctie({ bevestig: token, ja: antwoord })
+      .then(function (j) { toon(j.uitkomst || j.fout); })
+      .catch(function () { toon('mislukt'); });
+  }
+  ja.addEventListener('click', function () { kies(true); });
+  nee.addEventListener('click', function () { kies(false); });
+})();
+</script>
+</body>
+</html>

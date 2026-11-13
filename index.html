@@ -159,7 +159,7 @@
 
   footer{padding:48px 0 56px;color:var(--muted);font-size:.88rem}
   .foot-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap} .foot-links[hidden]{display:none}
   .foot-links a{color:var(--muted)} .foot-links a:hover{color:var(--text)}
 
   /* Rustig binnenkomen bij het scrollen; niet bij "minder beweging". */
@@ -321,6 +321,14 @@
     <a href="tel:+31659143689">Bellen</a>
     <a href="https://wa.me/31659143689">WhatsApp</a>
   </div>
+  <!-- Sociale kanalen: de accounts bestaan nog niet. Per kanaal het echte adres
+       als href zetten en pas dan `hidden` weghalen; nooit een gok-adres live. -->
+  <nav class="foot-links" aria-label="FABE op sociale media" hidden>
+    <a data-kanaal="instagram" rel="me noopener">Instagram</a>
+    <a data-kanaal="x" rel="me noopener">X</a>
+    <a data-kanaal="facebook" rel="me noopener">Facebook</a>
+    <a data-kanaal="youtube" rel="me noopener">YouTube</a>
+  </nav>
 </div></footer>
 
 <script>

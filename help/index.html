@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#141416">
+<meta name="color-scheme" content="dark">
+<title>Hulp en vragen — FABE</title>
+<link rel="canonical" href="https://getfabe.com/help/">
+<meta name="description" content="Antwoorden op vragen over FABE: offline werken, offertes, facturen, kosten en btw, abonnement en gegevens. In het Nederlands, Frans en Engels.">
+<style>
+  :root{
+    --bg:#141416; --bg2:#1C1C1E; --card:#232326; --line:#35353A;
+    --gold:#B5862A; --gold2:#D8A93E; --text:#EDEDEF; --muted:#A2A2A7;
+    --dim-aa:#8A8A8A;
+    --ease-out:cubic-bezier(0.23,1,0.32,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  [hidden]{display:none!important}
+  html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+  body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(216,169,62,.35);color:var(--text)}
+  a{color:var(--gold2);text-decoration:none;text-underline-offset:3px}
+  a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--gold2);outline-offset:2px;border-radius:8px}
+  button,a,summary{touch-action:manipulation}
+  .wrap{max-width:820px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
+  @media(min-width:600px){.wrap{padding:0 24px}}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(20,20,22,.92);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;gap:16px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;min-height:44px;font-weight:800;letter-spacing:3px;color:var(--gold2);font-size:1.15rem}
+  .mark{width:34px;height:34px;background:linear-gradient(135deg,var(--gold2),var(--gold));border-radius:9px;display:flex;align-items:center;justify-content:center;flex:none}
+  .mark svg{width:20px;height:20px}
+  .talen{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .talen button{all:unset;cursor:pointer;min-width:44px;height:40px;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--muted);user-select:none;-webkit-user-select:none;transition:background-color .15s ease,color .15s ease}
+  .talen button:focus-visible{outline:2px solid var(--gold2);outline-offset:-2px}
+  .talen button+button{border-left:1px solid var(--line)}
+  .talen button[aria-pressed="true"]{background:var(--card);color:var(--gold2)}
+  @media(hover:hover) and (pointer:fine){.talen button:hover{color:var(--text)}}
+
+  header{padding:48px 0 8px}
+  h1{font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+  .lead{color:var(--muted);margin-top:12px;max-width:60ch}
+  .zoek{position:relative;margin-top:28px}
+  .zoek svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:20px;pointer-events:none}
+  .zoek input{width:100%;height:56px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:16px;padding:0 16px 0 48px;caret-color:var(--gold2);transition:border-color .15s ease}
+  .zoek input::placeholder{color:var(--dim-aa)}
+  .zoek input:focus{outline:none;border-color:var(--gold2)}
+  .zoek input::-webkit-search-cancel-button{filter:invert(.7)}
+  .telling{color:var(--dim-aa);font-size:.85rem;margin-top:10px;min-height:1.4em}
+
+  .onderwerpen{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;list-style:none}
+  .onderwerpen a{display:flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:999px;color:var(--text);font-size:.9rem;background:var(--bg2);transition:border-color .15s ease}
+  @media(hover:hover) and (pointer:fine){.onderwerpen a:hover{border-color:var(--gold2)}}
+
+  main{padding-bottom:64px}
+  .groep{margin-top:48px}
+  .groep h2{font-size:1.3rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  details{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:16px 0;min-height:56px;font-weight:600;user-select:none;-webkit-user-select:none}
+  summary::-webkit-details-marker{display:none}
+  summary svg{flex:none;width:20px;height:20px;margin-top:3px;transition:transform .2s var(--ease-out)}
+  details[open] summary svg{transform:rotate(45deg)}
+  @media(hover:hover) and (pointer:fine){summary:hover{color:var(--gold2)}}
+  .antw{padding:0 0 20px;color:var(--muted);max-width:68ch}
+  .antw p+p{margin-top:10px}
+  .video:empty{display:none}
+  .video{margin-top:16px;aspect-ratio:16/9;max-width:560px;border-radius:12px;overflow:hidden;background:var(--bg2)}
+  .video iframe{width:100%;height:100%;border:0;display:block}
+  .app{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:.88rem;min-height:40px}
+  .app svg{width:16px;height:16px}
+  .open{margin-top:12px;font-size:.82rem;color:#F0906E;border:1px dashed rgba(240,144,110,.5);border-radius:8px;padding:8px 10px}
+  .leeg{margin-top:40px;color:var(--muted)}
+
+  footer{border-top:1px solid var(--line);padding:32px 0 calc(48px + env(safe-area-inset-bottom,0px));color:var(--dim-aa);font-size:.87rem}
+  .foot-links{display:flex;gap:8px 20px;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);min-height:40px;display:inline-flex;align-items:center}
+  @media(hover:hover) and (pointer:fine){.foot-links a:hover{color:var(--gold2)}}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <a class="brand" href="/"><span class="mark" aria-hidden="true"><svg viewBox="0 0 72 72"><path d="M20 38 L31 49 L52 24" fill="none" stroke="#141416" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg></span>FABE</a>
+  <!-- Alleen NL live (owner 17/11); FR/EN na nalezen: hidden weg en T.fr/T.en terug uit Fabe site/help/index.html. -->
+  <div class="talen" role="group" aria-label="Taal / Langue / Language" hidden>
+    <button type="button" data-taal="nl" lang="nl">NL</button>
+    <button type="button" data-taal="fr" lang="fr">FR</button>
+    <button type="button" data-taal="en" lang="en">EN</button>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <h1 data-t="titel">Hulp en vragen</h1>
+  <p class="lead" data-t="lead">Zoek je vraag of kies een onderwerp. Staat het er niet bij, app ons gerust.</p>
+  <div class="zoek">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#A2A2A7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="zoek" type="search" autocomplete="off" enterkeyhint="search" aria-describedby="telling">
+  </div>
+  <p class="telling" id="telling" aria-live="polite"></p>
+  <ul class="onderwerpen" id="onderwerpen"></ul>
+</div></header>
+
+<main class="wrap" id="lijst">
+  <noscript><p class="leeg">Deze pagina heeft JavaScript nodig. Mail of app ons: <a href="mailto:info@getfabe.com">info@getfabe.com</a></p></noscript>
+</main>
+
+<footer><div class="wrap foot-links">
+  <a href="/" data-t="home">Terug naar getfabe.com</a>
+  <a href="/privacy.html" data-t="privacy">Privacybeleid</a>
+  <a href="mailto:info@getfabe.com">info@getfabe.com</a>
+  <a id="wa-voet" href="https://wa.me/31659143689">WhatsApp</a>
+</div></footer>
+
+<script>
+(() => {
+  const T = {
+    nl: { titel: 'Hulp en vragen', lead: 'Zoek je vraag of kies een onderwerp. Staat het er niet bij, app ons gerust.', zoek: 'Zoek, bv. offline of btw', alle: n => `${n} vragen`, gevonden: n => n === 1 ? '1 vraag gevonden' : `${n} vragen gevonden`, leeg: q => `Geen vraag gevonden voor "${q}".`, app: 'Niet gevonden? App ons', home: 'Terug naar getfabe.com', privacy: 'Privacybeleid', fout: 'De vragen konden niet geladen worden. Mail of app ons.', open: 'Open punt' },
+  };
+  const params = new URLSearchParams(location.search);
+  const concept = params.has('concept');
+  const plus = '<svg viewBox="0 0 24 24" fill="none" stroke="#D8A93E" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  const waIcoon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>';
+  const $ = s => document.querySelector(s);
+  // Frans zet een spatie vóór ? ! : ; en binnen « »; vast maken zodat het teken niet alleen op een regel belandt.
+  const esc = s => String(s).replace(/ ([?!:;»])/g, ' $1').replace(/« /g, '« ').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const plat = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+  let data = null;
+  let taal = params.get('lang');
+  if (!T[taal]) { try { taal = localStorage.getItem('fabe-help-taal'); } catch (e) {} }
+  if (!T[taal]) taal = (navigator.language || 'nl').slice(0, 2);
+  if (!T[taal]) taal = 'nl';
+
+  function zichtbaar(v) { return concept || !v.open; }
+
+  function bouw() {
+    const t = T[taal];
+    document.documentElement.lang = taal;
+    document.title = `${t.titel} — FABE`;
+    document.querySelectorAll('[data-t]').forEach(el => { el.textContent = t[el.dataset.t]; });
+    $('#zoek').placeholder = t.zoek;
+    $('#zoek').setAttribute('aria-label', t.zoek);
+    document.querySelectorAll('.talen button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.taal === taal)));
+    if (!data) return;
+    const wa = `https://wa.me/${data.whatsapp}`;
+    $('#wa-voet').href = wa;
+    const groepen = data.groepen.map(g => ({ ...g, vragen: g.vragen.filter(zichtbaar) })).filter(g => g.vragen.length);
+    $('#onderwerpen').innerHTML = groepen.map(g => `<li><a href="#g-${g.id}">${esc(g.titel[taal])}</a></li>`).join('');
+    $('#lijst').innerHTML = groepen.map(g => `
+      <section class="groep" id="g-${g.id}" aria-labelledby="h-${g.id}">
+        <h2 id="h-${g.id}">${esc(g.titel[taal])}</h2>
+        ${g.vragen.map(v => {
+          const x = v[taal];
+          const video = v.youtube ? `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(v.youtube)}" title="${esc(x.v)}" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>` : '';
+          return `<details id="v${v.nr}" data-zoek="${esc(plat([v.nr, x.v, x.a, x.z].join(' ')))}">
+            <summary>${esc(x.v)}${plus}</summary>
+            <div class="antw">
+              ${x.a ? `<p>${esc(x.a)}</p>` : ''}
+              <div class="video" data-video="${esc(v.video || '')}">${video}</div>
+              ${v.open ? `<p class="open">${t.open} (${v.nr}): ${esc(v.open)}</p>` : ''}
+              <a class="app" href="${wa}">${waIcoon}${t.app}</a>
+            </div>
+          </details>`;
+        }).join('')}
+      </section>`).join('') + '<p class="leeg" id="leeg" hidden></p>';
+    filter();
+  }
+
+  function filter() {
+    const t = T[taal];
+    const q = $('#zoek').value.trim();
+    const woorden = plat(q).split(/\s+/).filter(Boolean);
+    let n = 0;
+    document.querySelectorAll('#lijst details').forEach(d => {
+      const raak = woorden.every(w => d.dataset.zoek.includes(w));
+      d.hidden = !raak;
+      if (raak) n++;
+    });
+    document.querySelectorAll('#lijst .groep').forEach(s => { s.hidden = !s.querySelector('details:not([hidden])'); });
+    $('#telling').textContent = woorden.length ? t.gevonden(n) : t.alle(n);
+    const leeg = $('#leeg');
+    if (leeg) { leeg.hidden = n > 0; leeg.innerHTML = n ? '' : `${esc(t.leeg(q))}<br><a class="app" href="https://wa.me/${data.whatsapp}">${waIcoon}${t.app}</a>`; }
+    $('#onderwerpen').hidden = woorden.length > 0;
+  }
+
+  function openHash() {
+    const el = location.hash && document.getElementById(location.hash.slice(1));
+    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView(); }
+  }
+
+  document.querySelectorAll('.talen button').forEach(b => b.addEventListener('click', () => {
+    taal = b.dataset.taal;
+    try { localStorage.setItem('fabe-help-taal', taal); } catch (e) {}
+    const u = new URL(location.href); u.searchParams.set('lang', taal); history.replaceState(null, '', u);
+    bouw();
+  }));
+  $('#zoek').addEventListener('input', filter);
+  window.addEventListener('hashchange', openHash);
+
+  bouw();
+  fetch('faq.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(j => { data = j; bouw(); openHash(); })
+    .catch(() => { $('#lijst').innerHTML = `<p class="leeg">${T[taal].fout} <a href="mailto:info@getfabe.com">info@getfabe.com</a></p>`; });
+})();
+</script>
+</body>
+</html>

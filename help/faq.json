@@ -1,0 +1,628 @@
+{
+  "versie": 1,
+  "talen": [
+    "nl"
+  ],
+  "whatsapp": "31659143689",
+  "groepen": [
+    {
+      "id": "kern",
+      "titel": {
+        "nl": "Waarom FABE"
+      },
+      "vragen": [
+        {
+          "nr": 1,
+          "video": "V01",
+          "nl": {
+            "v": "Werkt FABE zonder internet?",
+            "a": "Ja, volledig: klussen, klanten, offertes en facturen staan lokaal op de telefoon. Zodra er weer bereik is, synct alles stil naar de cloud.",
+            "z": "offline, geen bereik, kelder, sync, wifi"
+          }
+        },
+        {
+          "nr": 2,
+          "video": "V01",
+          "nl": {
+            "v": "Wat gebeurt er als ik zonder bereik een factuur maak en later weer online kom?",
+            "a": "De factuur krijgt zijn nummer lokaal en wordt bij de sync geüpload. Niets gaat verloren en dubbele nummers kunnen niet.",
+            "z": "sync, factuurnummer, verdwenen, kwijt"
+          }
+        },
+        {
+          "nr": 3,
+          "video": "V02",
+          "nl": {
+            "v": "Hoe laat ik de klant op het scherm tekenen?",
+            "a": "Open de offerte of werkbon, tik Tekenen en draai de telefoon naar de klant. De handtekening staat met datum en tijd op de PDF.",
+            "z": "handtekening, tekenen, akkoord, oplevering"
+          }
+        },
+        {
+          "nr": 4,
+          "video": "V02",
+          "nl": {
+            "v": "Geldt een handtekening in de app juridisch?",
+            "a": "Een digitale handtekening met tijdstip en naam is in Nederland en België geldig als bewijs van akkoord voor offertes en opleveringen.",
+            "z": "rechtsgeldig, geldig, bewijs"
+          }
+        },
+        {
+          "nr": 5,
+          "video": "V03",
+          "nl": {
+            "v": "Wat is kostprijs en marge per regel?",
+            "a": "Per offerte- of factuurregel vul je inkoopprijs en verkoopprijs in; FABE rekent de marge. Alleen jij ziet dit, de klant nooit.",
+            "z": "marge, winst, kostprijs, inkoop, nacalculatie"
+          }
+        },
+        {
+          "nr": 6,
+          "video": "V03",
+          "nl": {
+            "v": "Ziet mijn klant mijn marge of inkoopprijs?",
+            "a": "Nee. De PDF en het klantscherm tonen alleen de verkoopprijs.",
+            "z": "klant ziet, zichtbaar, privé"
+          }
+        },
+        {
+          "nr": 7,
+          "video": "V04",
+          "nl": {
+            "v": "Kan de klant direct betalen via QR?",
+            "a": "Ja, zodra je IBAN in je bedrijfsprofiel staat, heeft elke factuur een betaal-QR: je klant scant hem met zijn bank-app en bedrag, rekeningnummer en factuurnummer staan meteen goed. Op de klus toon je hem groot via de factuur → Betaal-QR tonen.",
+            "z": "QR, betaal-QR, betalen, bank-app, scannen, IBAN, overschrijving, direct betalen"
+          }
+        },
+        {
+          "nr": 8,
+          "video": "V05",
+          "nl": {
+            "v": "Hoe vertaal ik met mijn klant?",
+            "a": "Tik in de klus of op het klantscherm Vertalen. Jij praat of typt in jouw taal, de klant ziet zijn taal.",
+            "z": "vertalen, taal, Frans, Engels, Pools, klant begrijpt niet"
+          }
+        },
+        {
+          "nr": 9,
+          "video": "V06",
+          "nl": {
+            "v": "Wat kost FABE en wat zit erin?",
+            "a": "Eén pakket, FABE Pro: € 24,99 per maand incl. btw (€ 20,65 excl. btw). Alles zit erin: klanten, agenda, offertes, facturen, werkbonnen, uren, handtekening, offline. Geen extra pakketten.",
+            "z": "prijs, kosten, abonnement, per maand, excl btw"
+          }
+        },
+        {
+          "nr": 10,
+          "video": "V06",
+          "nl": {
+            "v": "Werkt FABE in het Nederlands, Frans en Engels?",
+            "a": "Ja. De taal van de app kies je in Instellingen; documenten naar de klant gaan per klant in zijn eigen taal.",
+            "z": "taal, Frans, Engels, Belgisch, Wallonië"
+          }
+        },
+        {
+          "nr": 11,
+          "video": null,
+          "nl": {
+            "v": "Is FABE ook voor een vakman met personeel?",
+            "a": "FABE is gemaakt voor de vakman met een eigen zaak: één account per bedrijf. Meerdere gebruikers met elk een eigen telefoon zit er nog niet in. Laat het ons weten via WhatsApp, dan weten we hoeveel vakmensen erop wachten.",
+            "z": "personeel, team, meerdere gebruikers, medewerker, werknemer, helper, ploeg"
+          }
+        },
+        {
+          "nr": 12,
+          "video": null,
+          "nl": {
+            "v": "Werkt het op iPhone?",
+            "a": "Nu op Android. iPhone volgt via de App Store; je account en gegevens gaan dan gewoon mee. Laat het ons weten via WhatsApp, dan weten we hoeveel vakmensen erop wachten.",
+            "z": "iPhone, iOS, Apple, App Store"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vandaag",
+      "titel": {
+        "nl": "Vandaag"
+      },
+      "vragen": [
+        {
+          "nr": 13,
+          "video": "V07",
+          "nl": {
+            "v": "Wat betekenen de vier kaarten bovenaan?",
+            "a": "Klussen vandaag, open offertes, openstaande facturen en achterstallige facturen. Tik op een kaart om de lijst te openen.",
+            "z": "kaarten, cijfers, dashboard"
+          }
+        },
+        {
+          "nr": 14,
+          "video": "V07",
+          "nl": {
+            "v": "Mijn klus van vandaag staat niet bij Vandaag",
+            "a": "Controleer de datum en tijdzone van de klus; een klus na middernacht telt als morgen.",
+            "z": "klus mist, niet zichtbaar, vandaag leeg"
+          }
+        },
+        {
+          "nr": 15,
+          "video": "V08",
+          "nl": {
+            "v": "Hoe begin ik een spoedklus zonder eerst een offerte?",
+            "a": "Je klus loopt meteen: tik de + onderin → Nieuwe klus → onderaan + Meteen starten. Uren, materiaal en foto's leg je vast terwijl je werkt. Zet je de klus op klaar, dan maak je er met Maak factuur meteen de factuur van.",
+            "z": "spoed, spoedklus, zonder offerte, direct, meteen starten, nu beginnen, storing, lekkage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "agenda",
+      "titel": {
+        "nl": "Agenda"
+      },
+      "vragen": [
+        {
+          "nr": 16,
+          "video": "V09",
+          "nl": {
+            "v": "Hoe plan ik een nieuwe klus?",
+            "a": "Plus → klusgegevens invullen → onderaan bij \"Voor wie?\" typen en kiezen. Een onbekende naam wordt bij opslaan een nieuwe klant.",
+            "z": "nieuwe klus, inplannen, afspraak"
+          }
+        },
+        {
+          "nr": 17,
+          "video": "V09",
+          "nl": {
+            "v": "Hoe zie ik meerdere weken tegelijk?",
+            "a": "De weekkaart toont je geplande klussen van deze week en de drie weken daarna, op de kaart en als lijst per week: Agenda → Weergave: Kaart, of de tegel 'deze week' op Vandaag. Een maandkalender zit er nog niet in. Laat het ons weten via WhatsApp, dan weten we hoeveel vakmensen erop wachten.",
+            "z": "weekoverzicht, weekkaart, maand, maandkalender, vier weken, volgende week, planning, kalender"
+          }
+        },
+        {
+          "nr": 18,
+          "video": "V10",
+          "nl": {
+            "v": "Waar zie ik mijn klussen op de kaart?",
+            "a": "Agenda → kaarticoon rechtsboven. Je ziet de klussen van de gekozen dag met reistijd.",
+            "z": "kaart, route, adres, navigatie"
+          }
+        },
+        {
+          "nr": 19,
+          "video": "V10",
+          "nl": {
+            "v": "Waarschuwt FABE als twee klussen te ver uit elkaar liggen?",
+            "a": "Ja. Plan je een klus te krap na een andere, dan toont FABE meteen hoeveel rijtijd je nodig hebt, zodat je kunt schuiven voor je de klant belt. De waarschuwing staat in de klus zelf, al terwijl je de tijd kiest.",
+            "z": "reistijd, rijtijd, te ver, te krap, overlapt, dubbel gepland, waarschuwing"
+          }
+        },
+        {
+          "nr": 20,
+          "video": null,
+          "nl": {
+            "v": "Hoe verplaats of annuleer ik een klus?",
+            "a": "Open de klus → Verplaatsen (nieuwe datum) of Annuleren. De klant kan een bericht krijgen.",
+            "z": "verzetten, annuleren, verschuiven"
+          }
+        }
+      ]
+    },
+    {
+      "id": "klanten",
+      "titel": {
+        "nl": "Klanten"
+      },
+      "vragen": [
+        {
+          "nr": 21,
+          "video": "V11",
+          "nl": {
+            "v": "Hoe voeg ik een klant toe?",
+            "a": "Klanten → Plus, of direct vanuit een nieuwe klus via \"Voor wie?\".",
+            "z": "klant toevoegen, contact"
+          }
+        },
+        {
+          "nr": 22,
+          "video": "V11",
+          "nl": {
+            "v": "Wat is het verschil tussen zakelijk en particulier?",
+            "a": "Zakelijk toont prijzen excl. btw, particulier incl. btw, op offerte en factuur. Je stelt het per klant in.",
+            "z": "btw, excl, incl, zakelijk, particulier"
+          }
+        },
+        {
+          "nr": 24,
+          "video": "V11",
+          "nl": {
+            "v": "Hoe zie ik alle klussen en facturen van één klant?",
+            "a": "Klantkaart → tabbladen Klussen, Offertes en Facturen.",
+            "z": "historie, overzicht per klant"
+          }
+        }
+      ]
+    },
+    {
+      "id": "offertes",
+      "titel": {
+        "nl": "Offertes"
+      },
+      "vragen": [
+        {
+          "nr": 25,
+          "video": "V12",
+          "nl": {
+            "v": "Hoe maak ik een offerte?",
+            "a": "Vanuit een klus of klant → Offerte → regels toevoegen uit je materialen- en urenlijst → Versturen als PDF.",
+            "z": "offerte maken, prijsopgave"
+          }
+        },
+        {
+          "nr": 27,
+          "video": "V02",
+          "nl": {
+            "v": "Hoe accepteert de klant een offerte?",
+            "a": "Door op het scherm te tekenen of via de link in de mail.",
+            "z": "akkoord, goedkeuren, accepteren"
+          }
+        },
+        {
+          "nr": 28,
+          "video": "V12",
+          "nl": {
+            "v": "Hoe zet ik een offerte om in een factuur?",
+            "a": "Offerte → Factuur maken. Regels, klant en btw gaan mee; je past alleen aan wat anders is geworden.",
+            "z": "omzetten, van offerte naar factuur"
+          }
+        }
+      ]
+    },
+    {
+      "id": "facturen",
+      "titel": {
+        "nl": "Facturen"
+      },
+      "vragen": [
+        {
+          "nr": 30,
+          "video": "V14",
+          "nl": {
+            "v": "Hoe maak ik mijn eerste factuur?",
+            "a": "Je factuur staat klaar zodra de klus klaar is: zet de klus op klaar en tik onderaan Maak factuur, dan staan je uren en materiaal er al op. Controleer de regels en tik Verstuur als PDF → Versturen.",
+            "z": "factuur maken, eerste factuur, rekening, factureren, maak factuur, versturen"
+          }
+        },
+        {
+          "nr": 31,
+          "video": "V15",
+          "nl": {
+            "v": "Hoe komen mijn uren op de factuur?",
+            "a": "Uren die je in de klus logt staan als regel klaar. Vink ze aan en ze gaan mee.",
+            "z": "uren, urenregistratie, tijd"
+          }
+        },
+        {
+          "nr": 32,
+          "video": "V14",
+          "nl": {
+            "v": "Kan ik een verstuurde factuur aanpassen?",
+            "a": "Nee, een verstuurde factuur ligt vast (wettelijk). Maak een creditfactuur en een nieuwe factuur.",
+            "z": "wijzigen, fout, credit, corrigeren"
+          }
+        },
+        {
+          "nr": 33,
+          "video": "V16",
+          "nl": {
+            "v": "Hoe stuur ik een herinnering?",
+            "a": "Je hoeft er niet aan te denken: op de vervaldag zet FABE herinnering 1 klaar bij Actie nodig op Vandaag en op de factuur. Eén tik en je verstuurt hem zelf via WhatsApp of mail. Daarna volgen herinnering 2 en de aanmaning, met de termijnen die FABE voor NL en BE klaarzet.",
+            "z": "herinnering, betalingsherinnering, aanmaning, niet betaald, te laat, vervallen, achterstallig, wanbetaler"
+          }
+        },
+        {
+          "nr": 34,
+          "video": "V17",
+          "nl": {
+            "v": "Wat is Peppol en moet ik dat gebruiken?",
+            "a": "Peppol is het netwerk voor e-facturen tussen bedrijven. FABE maakt bij elke factuur het UBL-bestand dat een boekhoudpakket of Peppol-dienst kan inlezen (factuur → Verstuur als PDF → UBL-bestand delen). Rechtstreeks via Peppol versturen vanuit FABE zit er nog niet in. Laat het ons weten via WhatsApp, dan weten we hoeveel vakmensen erop wachten.",
+            "z": "Peppol, e-factuur, e-facturatie, UBL, verplicht, België, elektronische factuur"
+          }
+        },
+        {
+          "nr": 35,
+          "video": "V18",
+          "nl": {
+            "v": "Hoe koppel ik mijn boekhouding?",
+            "a": "Instellingen → Koppelingen → Moneybird. Andere pakketten volgen.",
+            "z": "boekhouding, Moneybird, e-Boekhouden, export"
+          }
+        },
+        {
+          "nr": 36,
+          "video": null,
+          "nl": {
+            "v": "Hoe zie ik mijn omzet en marge per maand?",
+            "a": "Facturen → Rapport → maand kiezen.",
+            "z": "rapport, omzet, maandoverzicht"
+          }
+        }
+      ]
+    },
+    {
+      "id": "kosten",
+      "titel": {
+        "nl": "Kosten en btw"
+      },
+      "vragen": [
+        {
+          "nr": 62,
+          "video": "V25",
+          "nl": {
+            "v": "Kan ik kosten zonder bon invoeren, zoals verzekering of telefoon?",
+            "a": "Ja: Instellingen → Kosten → + Kost. Kies een categorie of maak er een met + Nieuwe categorie, vul bedrag en btw in; een foto is niet nodig. Verzekering en bankkosten staan vanzelf op Geen btw.",
+            "z": "verzekering, abonnement, telefoon, kosten zonder bon, categorie, algemene kosten, bankkosten, software"
+          }
+        },
+        {
+          "nr": 63,
+          "video": "V25",
+          "nl": {
+            "v": "Hoe zie ik wat ik dit kwartaal aan btw moet betalen of terugkrijg?",
+            "a": "Je ziet per kwartaal of je btw moet betalen of terugkrijgt: Instellingen → Kosten, kies het kwartaal met de pijltjes. Je ziet de btw op je facturen, de btw op je kosten (voorbelasting) en het saldo: te betalen of terug te vragen. Het is een voorbereiding voor je btw-aangifte, geen aangifte; je inkomstenbelasting doet je boekhouder.",
+            "z": "btw-aangifte, kwartaal, voorbelasting, terugvragen, btw betalen, belasting, saldo, aangifte"
+          }
+        },
+        {
+          "nr": 64,
+          "video": "V25",
+          "nl": {
+            "v": "Komen mijn bonnen op de factuur van de klant?",
+            "a": "Ja, met één tik: open de factuur van die klus en tik Toevoegen aan factuur. De bon komt erop tegen kostprijs excl. btw (onder de KOR incl. btw), materiaal als materiaalregel; wil je marge, verhoog dan de prijs op de regel. Kosten zonder klus en facturen die al verstuurd zijn, blijven erbuiten.",
+            "z": "doorbelasten, bon op factuur, materiaalkosten, marge, kostprijs, toevoegen aan factuur"
+          }
+        },
+        {
+          "nr": 65,
+          "video": "V25",
+          "nl": {
+            "v": "Hoe geef ik mijn bonnen aan mijn boekhouder?",
+            "a": "Je boekhouder krijgt alle bonnen van een kwartaal in één bestand: Instellingen → Kosten, kies het kwartaal en tik onderaan Exporteren. Je krijgt een zip met een CSV van de kosten en de foto's van je bonnen, te delen via WhatsApp of mail.",
+            "z": "boekhouder, export, exporteren, bonnen bewaren, bewijs, zip, CSV, inkoopboek"
+          }
+        }
+      ]
+    },
+    {
+      "id": "archief",
+      "titel": {
+        "nl": "Archief"
+      },
+      "vragen": [
+        {
+          "nr": 37,
+          "video": "V19",
+          "nl": {
+            "v": "Waar vind ik oude klussen en facturen?",
+            "a": "Archief → zoeken op klant, datum of nummer.",
+            "z": "oud, vorig jaar, terugvinden"
+          }
+        },
+        {
+          "nr": 38,
+          "video": "V19",
+          "nl": {
+            "v": "Hoe exporteer ik alles voor mijn boekhouder?",
+            "a": "Instellingen → Exporteren → kies maand, kwartaal, jaar of een eigen periode. Je krijgt één zip met alle facturen als pdf plus een CSV voor je boekhouder, te delen via mail of WhatsApp.",
+            "z": "export, exporteren, boekhouder, jaaroverzicht, kwartaal, zip, CSV, verkoopboek, facturen downloaden"
+          }
+        }
+      ]
+    },
+    {
+      "id": "instellingen",
+      "titel": {
+        "nl": "Instellingen"
+      },
+      "vragen": [
+        {
+          "nr": 39,
+          "video": "V20",
+          "nl": {
+            "v": "Hoe zet ik mijn logo op mijn facturen?",
+            "a": "Je logo staat op elke factuur zodra je het één keer kiest: Instellingen → Bedrijfsprofiel → Logo kiezen. Vul daar ook je naam, adres, btw-nummer en IBAN in; die komen mee op de factuur.",
+            "z": "logo, briefpapier, huisstijl, KvK, btw-nummer, IBAN, bedrijfsgegevens, bedrijfsprofiel"
+          }
+        },
+        {
+          "nr": 40,
+          "video": "V20",
+          "nl": {
+            "v": "Hoe maak ik mijn materialen- en gereedschapslijst?",
+            "a": "Instellingen → Materialen of Gereedschap, per klustype, met inkoop- en verkoopprijs.",
+            "z": "materialen, prijslijst, gereedschap"
+          }
+        },
+        {
+          "nr": 41,
+          "video": "V20",
+          "nl": {
+            "v": "Hoe wissel ik van taal?",
+            "a": "Instellingen → Taal → Nederlands, Frans of Engels.",
+            "z": "taal, Frans, Engels"
+          }
+        },
+        {
+          "nr": 42,
+          "video": "V20",
+          "nl": {
+            "v": "Hoe stel ik mijn uurtarief en btw-tarieven in?",
+            "a": "Instellingen → Tarieven.",
+            "z": "uurtarief, 21%, 9%, 6%, btw"
+          }
+        }
+      ]
+    },
+    {
+      "id": "account",
+      "titel": {
+        "nl": "Account, abonnement en gegevens"
+      },
+      "vragen": [
+        {
+          "nr": 43,
+          "video": "V21",
+          "nl": {
+            "v": "Hoe begin ik met FABE?",
+            "a": "Installeer FABE, maak een account met je e-mail en vul je bedrijfsgegevens in. Tijdens de bèta is FABE gratis; na de lancering krijg je 14 dagen gratis, zonder kaartnummer. Tip: maak meteen je eerste klant en klus aan, dan heb je binnen een paar minuten je eerste factuur.",
+            "z": "starten, beginnen, installeren, proef, proefperiode, gratis, 14 dagen, account, bèta"
+          }
+        },
+        {
+          "nr": 44,
+          "video": "V22",
+          "nl": {
+            "v": "Hoe betaal ik FABE Pro?",
+            "a": "Via Google Play (later ook de App Store). Het bedrag wordt maandelijks afgeschreven via je Google-account; de factuur komt van Google.",
+            "z": "betalen, abonnement, Google Play, factuur van FABE"
+          }
+        },
+        {
+          "nr": 45,
+          "video": "V22",
+          "nl": {
+            "v": "Kan ik een factuur voor mijn eigen boekhouding krijgen?",
+            "a": "Ja, via Google Play → Betalingen → factuur downloaden; die is btw-aftrekbaar.",
+            "z": "btw aftrekken, zakelijke factuur"
+          }
+        },
+        {
+          "nr": 46,
+          "video": "V22",
+          "nl": {
+            "v": "Hoe zeg ik op?",
+            "a": "Google Play → Abonnementen → FABE → Opzeggen. Je houdt toegang tot het einde van de betaalde maand.",
+            "z": "opzeggen, stoppen, annuleren"
+          }
+        },
+        {
+          "nr": 48,
+          "video": null,
+          "nl": {
+            "v": "Waar staan mijn gegevens en wie kan erbij?",
+            "a": "In de EU: op je telefoon en versleuteld in onze cloud in Frankfurt (Duitsland). Wij kijken alleen mee als jij daar bij support om vraagt.",
+            "z": "privacy, cloud, AVG, GDPR, veilig, Frankfurt, EU, Europa, versleuteld, server"
+          }
+        },
+        {
+          "nr": 49,
+          "video": null,
+          "nl": {
+            "v": "Kan ik FABE op een tweede telefoon of tablet gebruiken?",
+            "a": "Ja, log in met hetzelfde account en je gegevens syncen. Een indeling voor tablets volgt.",
+            "z": "tweede toestel, tablet, nieuwe telefoon"
+          }
+        },
+        {
+          "nr": 50,
+          "video": "V21",
+          "nl": {
+            "v": "Ik heb een nieuwe telefoon, hoe krijg ik alles terug?",
+            "a": "Met je account komt alles terug: installeer FABE op de nieuwe telefoon en log in via Instellingen → Account en back-up → Inloggen. Laat de app open tot de sync klaar is, het liefst op wifi. Zonder account kan het alleen met een back-upbestand: Instellingen → Bedrijfsprofiel → Back-up terugzetten.",
+            "z": "nieuwe telefoon, overzetten, herstellen, terugzetten, inloggen, back-up, andere telefoon"
+          }
+        },
+        {
+          "nr": 66,
+          "video": null,
+          "nl": {
+            "v": "Ik ben mijn telefoon kwijt, ben ik mijn gegevens kwijt?",
+            "a": "Nee, als je een account hebt: je gegevens staan versleuteld in onze cloud in de EU. Log op een andere telefoon in via Instellingen → Account en back-up en alles wat al gesynchroniseerd was, komt terug. Zonder account staat alles alleen op die telefoon; maak daarom nu een account aan.",
+            "z": "telefoon kwijt, gestolen, kapot, gegevens kwijt, verloren, back-up, account, cloud"
+          }
+        },
+        {
+          "nr": 51,
+          "video": null,
+          "nl": {
+            "v": "Hoe verander ik mijn wachtwoord of e-mail?",
+            "a": "Instellingen → Account.",
+            "z": "wachtwoord vergeten, e-mail wijzigen"
+          }
+        }
+      ]
+    },
+    {
+      "id": "problemen",
+      "titel": {
+        "nl": "Problemen oplossen"
+      },
+      "vragen": [
+        {
+          "nr": 59,
+          "video": null,
+          "nl": {
+            "v": "Inloggen lukt niet",
+            "a": "Reset je wachtwoord via de link en kijk ook in je spam. Lukt het dan nog niet, app ons via WhatsApp.",
+            "z": "inloggen, wachtwoord"
+          }
+        },
+        {
+          "nr": 52,
+          "video": "V23",
+          "nl": {
+            "v": "Mijn factuur of klant is verdwenen",
+            "a": "Meestal is die nog niet gesynct vanaf een ander toestel. Instellingen → Sync → Nu syncen, met wifi aan. Doorzoek daarna het Archief.",
+            "z": "kwijt, weg, verdwenen"
+          }
+        },
+        {
+          "nr": 53,
+          "video": "V23",
+          "nl": {
+            "v": "De sync blijft hangen of geeft een fout",
+            "a": "Sluit de app helemaal, open hem opnieuw, controleer de wifi en tik opnieuw Nu syncen. Lukt het niet: Instellingen → Help → Logboek sturen.",
+            "z": "sync fout, blijft laden"
+          }
+        },
+        {
+          "nr": 54,
+          "video": null,
+          "nl": {
+            "v": "De PDF ziet er verkeerd uit",
+            "a": "Werk de app bij via de Play Store. Klopt het daarna nog niet, stuur de PDF via Help.",
+            "z": "PDF, layout, scheef"
+          }
+        },
+        {
+          "nr": 55,
+          "video": "V24",
+          "nl": {
+            "v": "Spraakopname werkt niet",
+            "a": "Geef FABE toegang tot de microfoon: Android-instellingen → Apps → FABE → Toestemmingen → Microfoon.",
+            "z": "microfoon, opname, spraak"
+          }
+        },
+        {
+          "nr": 56,
+          "video": "V24",
+          "nl": {
+            "v": "De kaart toont niets",
+            "a": "Zet de locatietoestemming aan. Zonder internet laadt de kaart niet; de klusadressen zie je wel.",
+            "z": "kaart leeg, locatie"
+          }
+        },
+        {
+          "nr": 60,
+          "video": null,
+          "nl": {
+            "v": "Hoe meld ik een fout?",
+            "a": "Instellingen → Help → Fout melden, met een schermafbeelding. Of via WhatsApp.",
+            "z": "bug, fout melden, contact"
+          }
+        }
+      ]
+    }
+  ]
+}

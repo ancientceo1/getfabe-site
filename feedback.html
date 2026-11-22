@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Feedback op FABE</title>
+<link rel="canonical" href="https://getfabe.com/feedback.html">
+<style>
+  :root { --bg:#1C1C1E; --gold:#B5862A; --text:#EDEDEF; --muted:#9A9A9D; --card:#2A2A2C; --line:#3D3D41; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.6; }
+  .wrap { max-width:640px; margin:0 auto; padding:40px 20px 56px; }
+  a { color:var(--gold); }
+  h1 { color:var(--gold); font-size:1.7rem; margin-bottom:6px; }
+  .sub { color:var(--muted); margin-bottom:28px; }
+  label { display:block; font-weight:600; margin:22px 0 8px; }
+  .hint { color:var(--muted); font-weight:400; font-size:.9rem; }
+  select, textarea, input[type=email] { width:100%; background:var(--card); color:var(--text); border:1px solid var(--line); border-radius:10px; padding:14px; font:inherit; font-size:1rem; min-height:48px; }
+  textarea { min-height:110px; resize:vertical; }
+  button { margin-top:28px; width:100%; min-height:52px; border:0; border-radius:10px; background:var(--gold); color:#1C1C1E; font:inherit; font-size:1.05rem; font-weight:700; cursor:pointer; }
+  button[disabled] { opacity:.6; cursor:default; }
+  .verborgen { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .melding { margin-top:20px; padding:16px; border-radius:10px; background:var(--card); border:1px solid var(--line); display:none; }
+  .melding.zichtbaar { display:block; }
+  .talen { float:right; font-size:.9rem; }
+  .talen a { margin-left:10px; text-decoration:none; }
+  .talen a.actief { color:var(--text); }
+  footer { border-top:1px solid var(--line); margin-top:44px; padding-top:20px; color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="talen"><a href="?taal=nl" data-taal="nl">NL</a><a href="?taal=fr" data-taal="fr">FR</a><a href="?taal=en" data-taal="en">EN</a></div>
+  <h1 data-t="titel">Feedback op FABE</h1>
+  <p class="sub" data-t="sub">Bedankt dat je FABE test. Eén zin is genoeg — vul in wat je kwijt wil.</p>
+
+  <form id="formulier" novalidate>
+    <label for="missie"><span data-t="missieLabel">Bij welke missie?</span> <span class="hint" data-t="optioneel">(optioneel)</span></label>
+    <select id="missie" name="missie">
+      <option value="" data-t="missie0">— kies —</option>
+      <option value="1" data-t="missie1">1. Je bedrijf instellen</option>
+      <option value="2" data-t="missie2">2. Een klant toevoegen</option>
+      <option value="3" data-t="missie3">3. Een offerte maken</option>
+      <option value="4" data-t="missie4">4. Een klus plannen en starten</option>
+      <option value="5" data-t="missie5">5. Op de klus: uren, foto's, materiaal, meerwerk</option>
+      <option value="6" data-t="missie6">6. Handtekening, factuur en betaal-QR</option>
+      <option value="7" data-t="missie7">7. Herinnering en export</option>
+      <option value="8" data-t="missie8">8. Vertalen met de klant</option>
+    </select>
+
+    <label for="onduidelijk" data-t="onduidelijkLabel">Wat was onduidelijk?</label>
+    <textarea id="onduidelijk" name="onduidelijk" maxlength="2000"></textarea>
+
+    <label for="vastgelopen" data-t="vastgelopenLabel">Waar liep je vast?</label>
+    <textarea id="vastgelopen" name="vastgelopen" maxlength="2000"></textarea>
+
+    <label for="mist" data-t="mistLabel">Wat mis je?</label>
+    <textarea id="mist" name="mist" maxlength="2000"></textarea>
+
+    <label for="email"><span data-t="emailLabel">Je e-mailadres</span> <span class="hint" data-t="optioneel">(optioneel)</span></label>
+    <input type="email" id="email" name="email" maxlength="254" autocomplete="email">
+    <p class="hint" style="margin-top:8px" data-t="emailUitleg">Alleen om je te bedanken en te laten weten wanneer het is opgelost. Zie het <a href="/privacy.html">privacybeleid</a>.</p>
+
+    <div class="verborgen" aria-hidden="true"><label for="website">Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+
+    <button type="submit" id="verstuur" data-t="verstuur">Versturen</button>
+  </form>
+
+  <div class="melding" id="melding" role="status"></div>
+
+  <footer>
+    <p><a href="/">← getfabe.com</a> · <a href="/privacy.html" data-t="privacy">Privacybeleid</a></p>
+  </footer>
+</div>
+<script>
+(function () {
+  var URL_FUNCTIE = 'https://cmmcqqpmkmjsousndthx.supabase.co/functions/v1/beta-feedback';
+  var T = {
+    nl: {},
+    fr: {
+      titel: 'Votre avis sur FABE', sub: 'Merci de tester FABE. Une phrase suffit — écrivez ce que vous voulez nous dire.',
+      missieLabel: 'Quelle mission ?', optioneel: '(facultatif)', missie0: '— choisir —',
+      missie1: '1. Configurer votre entreprise', missie2: '2. Ajouter un client', missie3: '3. Faire un devis',
+      missie4: '4. Planifier et démarrer une intervention', missie5: '5. Sur le chantier : heures, photos, matériel, travaux supplémentaires',
+      missie6: '6. Signature, facture et QR de paiement', missie7: '7. Rappel et export', missie8: '8. Traduire avec le client',
+      onduidelijkLabel: "Qu'est-ce qui n'était pas clair ?", vastgelopenLabel: 'Où avez-vous été bloqué ?', mistLabel: 'Que vous manque-t-il ?',
+      emailLabel: 'Votre adresse e-mail', emailUitleg: 'Uniquement pour vous remercier et vous prévenir quand c’est corrigé. Voir la <a href="/privacy.html">politique de confidentialité</a>.',
+      verstuur: 'Envoyer', privacy: 'Confidentialité',
+      ok: 'Merci ! Votre avis est bien arrivé.',
+      leeg: 'Écrivez au moins une ligne dans l’un des trois champs.', email: 'Cette adresse e-mail ne semble pas correcte.',
+      teveel: 'Trop de messages en peu de temps. Réessayez dans une heure.', fout: 'L’envoi n’a pas fonctionné. Réessayez plus tard.'
+    },
+    en: {
+      titel: 'Feedback on FABE', sub: 'Thanks for testing FABE. One sentence is enough — write what you want to tell us.',
+      missieLabel: 'Which mission?', optioneel: '(optional)', missie0: '— choose —',
+      missie1: '1. Set up your business', missie2: '2. Add a client', missie3: '3. Make a quote',
+      missie4: '4. Plan and start a job', missie5: '5. On the job: hours, photos, materials, extra work',
+      missie6: '6. Signature, invoice and payment QR', missie7: '7. Reminder and export', missie8: '8. Translate with the client',
+      onduidelijkLabel: 'What was unclear?', vastgelopenLabel: 'Where did you get stuck?', mistLabel: 'What are you missing?',
+      emailLabel: 'Your email address', emailUitleg: 'Only to thank you and to tell you when it’s fixed. See the <a href="/privacy.html">privacy policy</a>.',
+      verstuur: 'Send', privacy: 'Privacy',
+      ok: 'Thanks! Your feedback arrived.',
+      leeg: 'Write at least one line in one of the three fields.', email: 'That email address doesn’t look right.',
+      teveel: 'Too many messages in a short time. Try again in an hour.', fout: 'Sending didn’t work. Please try again later.'
+    }
+  };
+  T.nl = {
+    ok: 'Bedankt! Je feedback is binnen.',
+    leeg: 'Schrijf minstens één regel in een van de drie vakken.', email: 'Dat e-mailadres lijkt niet te kloppen.',
+    teveel: 'Te veel berichten kort na elkaar. Probeer het over een uur opnieuw.', fout: 'Versturen lukte niet. Probeer het later opnieuw.'
+  };
+
+  var p = new URLSearchParams(location.search);
+  var nav = (navigator.language || 'nl').slice(0, 2);
+  var taal = p.get('taal') || (nav === 'fr' || nav === 'en' ? nav : 'nl');
+  if (!T[taal]) taal = 'nl';
+  document.documentElement.lang = taal;
+  document.querySelectorAll('.talen a').forEach(function (a) {
+    if (a.getAttribute('data-taal') === taal) a.classList.add('actief');
+    var q = new URLSearchParams(location.search); q.set('taal', a.getAttribute('data-taal'));
+    a.setAttribute('href', '?' + q.toString());
+  });
+  if (taal !== 'nl') {
+    document.querySelectorAll('[data-t]').forEach(function (el) {
+      var k = el.getAttribute('data-t');
+      if (T[taal][k]) el.innerHTML = T[taal][k];
+    });
+  }
+  if (p.get('missie')) document.getElementById('missie').value = p.get('missie');
+
+  var form = document.getElementById('formulier');
+  var melding = document.getElementById('melding');
+  var knop = document.getElementById('verstuur');
+  function toon(sleutel) { melding.textContent = T[taal][sleutel]; melding.classList.add('zichtbaar'); }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value.trim(); };
+    if (!v('onduidelijk') && !v('vastgelopen') && !v('mist')) { toon('leeg'); return; }
+    knop.disabled = true;
+    var body = {
+      bron: p.get('bron') === 'app' ? 'app' : 'site', taal: taal,
+      missie: v('missie') ? Number(v('missie')) : null,
+      onduidelijk: v('onduidelijk'), vastgelopen: v('vastgelopen'), mist: v('mist'),
+      email: v('email'), website: v('website'),
+      app_versie: p.get('versie') || null, toestel: p.get('toestel') || null
+    };
+    fetch(URL_FUNCTIE, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().then(function (j) { return { status: r.status, j: j }; }); })
+      .then(function (res) {
+        if (res.status === 200) { form.style.display = 'none'; toon('ok'); return; }
+        knop.disabled = false;
+        toon(res.j && res.j.fout === 'email' ? 'email' : res.j && res.j.fout === 'leeg' ? 'leeg' : res.status === 429 ? 'teveel' : 'fout');
+      })
+      .catch(function () { knop.disabled = false; toon('fout'); });
+  });
+})();
+</script>
+</body>
+</html>

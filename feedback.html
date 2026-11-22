@@ -127,6 +127,7 @@
       if (T[taal][k]) el.innerHTML = T[taal][k];
     });
   }
+  document.querySelectorAll('a[href="/privacy.html"]').forEach(function (a) { a.setAttribute('href', '/privacy.html#feedback-' + taal); });
   if (p.get('missie')) document.getElementById('missie').value = p.get('missie');
 
   var form = document.getElementById('formulier');

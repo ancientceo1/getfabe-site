@@ -70,7 +70,7 @@
   <div class="melding" id="melding" role="status"></div>
 
   <footer>
-    <p><a href="/">← getfabe.com</a> · <a href="/privacy.html" data-t="privacy">Privacybeleid</a></p>
+    <p><a href="/">← getfabe.com</a> · <a href="/handleiding.html" data-t="handleiding">Handleiding</a> · <a href="/privacy.html" data-t="privacy">Privacybeleid</a></p>
   </footer>
 </div>
 <script>
@@ -86,7 +86,7 @@
       missie6: '6. Signature, facture et QR de paiement', missie7: '7. Rappel et export', missie8: '8. Traduire avec le client',
       onduidelijkLabel: "Qu'est-ce qui n'était pas clair ?", vastgelopenLabel: 'Où avez-vous été bloqué ?', mistLabel: 'Que vous manque-t-il ?',
       emailLabel: 'Votre adresse e-mail', emailUitleg: 'Uniquement pour vous remercier et vous prévenir quand c’est corrigé. Voir la <a href="/privacy.html">politique de confidentialité</a>.',
-      verstuur: 'Envoyer', privacy: 'Confidentialité',
+      verstuur: 'Envoyer', privacy: 'Confidentialité', handleiding: 'Guide',
       ok: 'Merci ! Votre avis est bien arrivé.',
       leeg: 'Écrivez au moins une ligne dans l’un des trois champs.', email: 'Cette adresse e-mail ne semble pas correcte.',
       teveel: 'Trop de messages en peu de temps. Réessayez dans une heure.', fout: 'L’envoi n’a pas fonctionné. Réessayez plus tard.'
@@ -99,7 +99,7 @@
       missie6: '6. Signature, invoice and payment QR', missie7: '7. Reminder and export', missie8: '8. Translate with the client',
       onduidelijkLabel: 'What was unclear?', vastgelopenLabel: 'Where did you get stuck?', mistLabel: 'What are you missing?',
       emailLabel: 'Your email address', emailUitleg: 'Only to thank you and to tell you when it’s fixed. See the <a href="/privacy.html">privacy policy</a>.',
-      verstuur: 'Send', privacy: 'Privacy',
+      verstuur: 'Send', privacy: 'Privacy', handleiding: 'Guide',
       ok: 'Thanks! Your feedback arrived.',
       leeg: 'Write at least one line in one of the three fields.', email: 'That email address doesn’t look right.',
       teveel: 'Too many messages in a short time. Try again in an hour.', fout: 'Sending didn’t work. Please try again later.'
@@ -128,6 +128,7 @@
     });
   }
   document.querySelectorAll('a[href="/privacy.html"]').forEach(function (a) { a.setAttribute('href', '/privacy.html#feedback-' + taal); });
+  document.querySelectorAll('a[href="/handleiding.html"]').forEach(function (a) { a.setAttribute('href', '/handleiding.html?taal=' + taal); });
   if (p.get('missie')) document.getElementById('missie').value = p.get('missie');
 
   var form = document.getElementById('formulier');

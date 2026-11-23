@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Handleiding FABE-bèta</title>
+<link rel="canonical" href="https://getfabe.com/handleiding.html">
+<style>
+  :root { --bg:#1C1C1E; --gold:#B5862A; --text:#EDEDEF; --muted:#9A9A9D; --card:#2A2A2C; --line:#3D3D41; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif; line-height:1.6; }
+  .wrap { max-width:640px; margin:0 auto; padding:40px 20px 56px; }
+  a { color:var(--gold); }
+  h1 { color:var(--gold); font-size:1.7rem; margin-bottom:6px; }
+  h2 { font-size:1.15rem; margin:0 0 10px; }
+  h2 span { color:var(--gold); }
+  h3 { font-size:.95rem; color:var(--muted); font-weight:600; margin:14px 0 6px; }
+  .sub { color:var(--muted); margin-bottom:12px; }
+  .missie { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 16px; margin-top:20px; }
+  ol { padding-left:22px; }
+  li { margin:4px 0; }
+  b { color:var(--text); }
+  .melden { display:inline-block; margin-top:12px; min-height:48px; line-height:48px; font-size:.95rem; }
+  .talen { float:right; font-size:.9rem; }
+  .talen a { margin-left:10px; text-decoration:none; }
+  .talen a.actief { color:var(--text); }
+  section + section { border-top:1px solid var(--line); margin-top:44px; padding-top:32px; }
+  .js section + section { border-top:0; margin-top:0; padding-top:0; }
+  footer { border-top:1px solid var(--line); margin-top:44px; padding-top:20px; color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="talen"><a href="?taal=nl" data-taal="nl">NL</a><a href="?taal=fr" data-taal="fr">FR</a><a href="?taal=en" data-taal="en">EN</a></div>
+
+  <section id="nl" lang="nl">
+    <h1>Zo test je FABE</h1>
+    <p class="sub">Acht korte missies door een gewone werkdag. Doe ze in volgorde: elke missie gaat verder met wat je in de vorige maakte. Zet de app in het Nederlands, dan kloppen de knopnamen hieronder.</p>
+    <p class="sub">Geen echte klant bij de hand? Verzin er een, bijvoorbeeld Van Dijk Installatietechniek, Havenstraat 12, 3311 AB Dordrecht.</p>
+
+    <div class="missie">
+      <h2><span>1.</span> Je bedrijf instellen</h2>
+      <ol>
+        <li>Tik onderaan op <b>Instellingen</b> en dan op <b>Bedrijfsprofiel</b>.</li>
+        <li>Vul <b>Bedrijfsnaam</b>, <b>Adres</b>, <b>Postcode</b>, <b>Plaats</b> en <b>BTW-nummer</b> in.</li>
+        <li>Vul je <b>IBAN</b> en je <b>Standaard uurtarief</b> in. Zonder IBAN komt er geen betaal-QR op je factuur (missie 6).</li>
+        <li>Tik op <b>Logo kiezen</b> en kies je logo.</li>
+        <li>Tik op <b>Profiel opslaan</b>.</li>
+      </ol>
+      <h3>Wat je moet zien</h3>
+      <p>De melding <b>Bedrijfsprofiel opgeslagen</b>. Je naam en logo komen op elke offerte en factuur.</p>
+      <a class="melden" href="/feedback.html?missie=1&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>2.</span> Een klant toevoegen</h2>
+      <ol>
+        <li>Tik op de gouden <b>+</b> midden onderaan en kies <b>Nieuwe klant</b>.</li>
+        <li>Vul <b>Naam</b>, <b>Straat en huisnummer</b>, <b>Postcode</b>, <b>Plaats</b> en <b>Telefoon</b> in.</li>
+        <li>Kies bij <b>In welke taal communiceer je met deze klant?</b> de taal van je klant.</li>
+        <li>Tik op <b>Klant opslaan</b>.</li>
+      </ol>
+      <p>Staat de klant al in je telefoon? Tik dan op <b>Klanten</b>, <b>Uit contacten kiezen</b>, vink hem aan en tik op <b>Toevoegen als klant (1)</b>.</p>
+      <h3>Wat je moet zien</h3>
+      <p>De melding <b>Klant aangemaakt</b>, en de klant staat in de lijst onder <b>Klanten</b>.</p>
+      <a class="melden" href="/feedback.html?missie=2&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>3.</span> Een offerte maken</h2>
+      <ol>
+        <li>Tik op de gouden <b>+</b> en kies <b>Nieuwe klus</b>. Kies je klant bij <b>Naam van de klant</b>, vul <b>Titel klus</b> in en tik op <b>Klus aanmaken</b>.</li>
+        <li>Tik op de klus op het tabblad <b>Offerte</b> en dan op <b>+ Offerte opstellen</b>.</li>
+        <li>Tik op <b>+ Werk of materiaal toevoegen</b>, vul <b>Omschrijving</b> en <b>Prijs per eenheid</b> in en tik op <b>Opslaan</b>. Doe dit voor elke regel.</li>
+        <li>Tik op <b>Verstuur als PDF</b> en dan op <b>Versturen</b>. Stuur hem naar je klant of naar jezelf.</li>
+      </ol>
+      <h3>Wat je moet zien</h3>
+      <p>De melding <b>Offerte verstuurd</b>. De PDF draagt je logo, je gegevens en het totaal met btw.</p>
+      <a class="melden" href="/feedback.html?missie=3&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>4.</span> Een klus plannen en starten</h2>
+      <ol>
+        <li>Open de klus uit missie 3 en tik op het tabblad <b>Overzicht</b>.</li>
+        <li>Tik op <b>Inplannen</b>, kies <b>Vandaag</b> of <b>Morgen</b>, en een uur bij <b>Van</b> en bij <b>Tot</b>.</li>
+        <li>Tik nog eens op <b>Inplannen</b>.</li>
+        <li>Sta je bij de klant? Tik onderaan op <b>Start klus</b>.</li>
+      </ol>
+      <h3>Wat je moet zien</h3>
+      <p>Na het inplannen de melding <b>Ingepland op …</b>, en de klus staat in <b>Agenda</b>. Na het starten de vraag <b>Voor-foto's maken?</b> met <b>Camera</b>, <b>Uit galerij</b> en <b>Overslaan</b>, en onderaan de knop <b>Klus afronden</b>.</p>
+      <a class="melden" href="/feedback.html?missie=4&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>5.</span> Op de klus: uren, foto's, materiaal, meerwerk</h2>
+      <ol>
+        <li>Je uren lopen sinds <b>Start klus</b>. Wil je ze nakijken, tik dan op <b>Uren invoeren of aanpassen</b>.</li>
+        <li>Tik op het tabblad <b>Foto's</b> en dan op <b>+ Foto tijdens</b>.</li>
+        <li>Typ op <b>Overzicht</b> bij <b>Nieuw materiaal</b> wat je gebruikt, bijvoorbeeld 20m PVC-buis, en tik op <b>Toevoegen</b>.</li>
+        <li>Vraagt de klant iets extra? Tik op <b>Meerwerk toevoegen</b> en maak een foto.</li>
+        <li>Vul <b>Omschrijving</b>, <b>Prijs</b> en <b>Naam klant</b> in, laat de klant tekenen en tik op <b>Bevestigen</b>.</li>
+      </ol>
+      <h3>Wat je moet zien</h3>
+      <p>Op <b>Overzicht</b> de tekst <b>Loopt sinds …</b> met de tijd. Na het meerwerk de melding <b>Meerwerk toegevoegd</b> en de regel <b>Nog niet gefactureerd meerwerk</b>.</p>
+      <a class="melden" href="/feedback.html?missie=5&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>6.</span> Handtekening, factuur en betaal-QR</h2>
+      <ol>
+        <li>Tik op de klus op <b>Klus afronden</b>.</li>
+        <li>Vul <b>Naam klant</b> in, laat de klant tekenen en tik op <b>Bevestigen</b>.</li>
+        <li>Tik op <b>Factuur maken en laten betalen</b>.</li>
+        <li>De betaal-QR staat groot op het scherm, met <b>Te betalen</b>. Tik daarna op <b>Klaar</b>.</li>
+        <li>Tik op de klus op <b>Factuur versturen</b> en dan op <b>Versturen</b>. Stuur hem naar je klant of naar jezelf.</li>
+      </ol>
+      <h3>Wat je moet zien</h3>
+      <p>De melding <b>Handtekening opgeslagen</b>, daarna de QR met het juiste bedrag. Na versturen de melding <b>Factuur gedeeld — status op Verstuurd gezet</b>. Staat er geen QR maar een melding over je IBAN, vul die dan in bij missie 1.</p>
+      <a class="melden" href="/feedback.html?missie=6&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>7.</span> Herinnering en export</h2>
+      <ol>
+        <li>Laat de factuur uit missie 6 openstaan tot na de vervaldatum. De termijn staat in <b>Bedrijfsprofiel</b> bij <b>Betalingstermijn facturen (dagen)</b>.</li>
+        <li>Is hij verlopen, kijk dan op <b>Vandaag</b> onder <b>Actie nodig</b>. Tik bij de factuur op <b>Herinnering sturen</b> en stuur hem naar jezelf.</li>
+        <li>Tik op <b>Instellingen</b> en dan op <b>Exporteren</b>.</li>
+        <li>Kies <b>Maand</b> en tik op <b>Exporteren</b>. Bewaar het bestand of stuur het naar jezelf.</li>
+      </ol>
+      <h3>Wat je moet zien</h3>
+      <p>Na de herinnering de melding <b>Herinnering verstuurd</b>. Na het exporteren <b>… facturen klaar om te delen.</b>, met elke factuur als PDF en één boekhoud-CSV.</p>
+      <a class="melden" href="/feedback.html?missie=7&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>8.</span> Vertalen met de klant</h2>
+      <ol>
+        <li>Open een klus en tik op <b>Vertaal</b>, naast <b>Bellen</b> en <b>WhatsApp</b>.</li>
+        <li>Tik bovenaan rechts op de taal van de klant en kies de taal die hij spreekt.</li>
+        <li>De eerste keer vraagt de app om die taal te downloaden. Doe dat op wifi.</li>
+        <li>Typ of spreek in bij <b>Jij</b> en tik op <b>Vertaal</b>. Laat de klant antwoorden in het vak <b>Klant</b> en tik daar op <b>Vertaal</b>.</li>
+        <li>Zet daarna je vliegtuigstand aan en probeer het opnieuw.</li>
+      </ol>
+      <h3>Wat je moet zien</h3>
+      <p>Elke zin komt vertaald terug, ook in vliegtuigstand.</p>
+      <a class="melden" href="/feedback.html?missie=8&amp;taal=nl">Iets mis bij deze missie? Meld het</a>
+    </div>
+  </section>
+
+  <!-- FR en EN: vertaald uit de NL-tekst (23/11), niet nagelezen door een moedertaalspreker. Knopnamen letterlijk uit src/i18n/locales/fr.json en en.json. -->
+  <section id="fr" lang="fr">
+    <h1>Comment tester FABE</h1>
+    <p class="sub">Huit courtes missions à travers une journée de travail ordinaire. Faites-les dans l'ordre : chaque mission reprend ce que vous avez créé dans la précédente. Mettez l'application en français, les noms des boutons ci-dessous correspondront.</p>
+    <p class="sub">Pas de vrai client sous la main ? Inventez-en un, par exemple Van Dijk Installatietechniek, Havenstraat 12, 3311 AB Dordrecht.</p>
+
+    <div class="missie">
+      <h2><span>1.</span> Configurer votre entreprise</h2>
+      <ol>
+        <li>Touchez <b>Paramètres</b> en bas, puis <b>Profil de l'entreprise</b>.</li>
+        <li>Remplissez <b>Nom de l'entreprise</b>, <b>Adresse</b>, <b>Code postal</b>, <b>Ville</b> et <b>Numéro de TVA</b>.</li>
+        <li>Remplissez votre <b>IBAN</b> et votre <b>Taux horaire par défaut</b>. Sans IBAN, pas de QR de paiement sur votre facture (mission 6).</li>
+        <li>Touchez <b>Choisir un logo</b> et choisissez votre logo.</li>
+        <li>Touchez <b>Enregistrer le profil</b>.</li>
+      </ol>
+      <h3>Ce que vous devez voir</h3>
+      <p>Le message <b>Profil de l'entreprise enregistré</b>. Votre nom et votre logo figurent sur chaque devis et chaque facture.</p>
+      <a class="melden" href="/feedback.html?missie=1&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>2.</span> Ajouter un client</h2>
+      <ol>
+        <li>Touchez le <b>+</b> doré au milieu en bas et choisissez <b>Nouveau client</b>.</li>
+        <li>Remplissez <b>Nom</b>, <b>Rue et numéro</b>, <b>Code postal</b>, <b>Ville</b> et <b>Téléphone</b>.</li>
+        <li>À la question <b>Dans quelle langue communiquez-vous avec ce client ?</b>, choisissez la langue de votre client.</li>
+        <li>Touchez <b>Enregistrer le client</b>.</li>
+      </ol>
+      <p>Le client est déjà dans votre téléphone ? Touchez <b>Clients</b>, <b>Choisir dans les contacts</b>, cochez-le et touchez <b>Ajouter comme client (1)</b>.</p>
+      <h3>Ce que vous devez voir</h3>
+      <p>Le message <b>Client créé</b>, et le client apparaît dans la liste sous <b>Clients</b>.</p>
+      <a class="melden" href="/feedback.html?missie=2&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>3.</span> Faire un devis</h2>
+      <ol>
+        <li>Touchez le <b>+</b> doré et choisissez <b>Nouvelle intervention</b>. Choisissez votre client sous <b>Nom du client</b>, remplissez <b>Titre de l'intervention</b> et touchez <b>Créer l'intervention</b>.</li>
+        <li>Dans l'intervention, touchez l'onglet <b>Devis</b>, puis <b>+ Établir un devis</b>.</li>
+        <li>Touchez <b>+ Ajouter travail ou matériau</b>, remplissez <b>Description</b> et <b>Prix unitaire</b>, puis touchez <b>Enregistrer</b>. Faites-le pour chaque ligne.</li>
+        <li>Touchez <b>Envoyer en PDF</b>, puis <b>Envoyer</b>. Envoyez-le à votre client ou à vous-même.</li>
+      </ol>
+      <h3>Ce que vous devez voir</h3>
+      <p>Le message <b>Devis envoyé</b>. Le PDF porte votre logo, vos coordonnées et le total TVA comprise.</p>
+      <a class="melden" href="/feedback.html?missie=3&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>4.</span> Planifier et démarrer une intervention</h2>
+      <ol>
+        <li>Ouvrez l'intervention de la mission 3 et touchez l'onglet <b>Aperçu</b>.</li>
+        <li>Touchez <b>Planifier</b>, choisissez <b>Aujourd'hui</b> ou <b>Demain</b>, et une heure sous <b>De</b> et sous <b>À</b>.</li>
+        <li>Touchez encore <b>Planifier</b>.</li>
+        <li>Vous êtes chez le client ? Touchez <b>Démarrer l'intervention</b> en bas.</li>
+      </ol>
+      <h3>Ce que vous devez voir</h3>
+      <p>Après la planification, le message <b>Planifié le …</b>, et l'intervention apparaît dans <b>Agenda</b>. Après le démarrage, la question <b>Prendre des photos avant ?</b> avec <b>Appareil photo</b>, <b>Depuis la galerie</b> et <b>Passer</b>, et en bas le bouton <b>Terminer l'intervention</b>.</p>
+      <a class="melden" href="/feedback.html?missie=4&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>5.</span> Sur le chantier : heures, photos, matériel, travaux supplémentaires</h2>
+      <ol>
+        <li>Vos heures tournent depuis <b>Démarrer l'intervention</b>. Pour les vérifier, touchez <b>Saisir ou modifier les heures</b>.</li>
+        <li>Touchez l'onglet <b>Photos</b>, puis <b>+ Photo pendant</b>.</li>
+        <li>Dans <b>Aperçu</b>, tapez sous <b>Nouveau matériau</b> ce que vous utilisez, par exemple 20m tuyau PVC, et touchez <b>Ajouter</b>.</li>
+        <li>Le client demande un supplément ? Touchez <b>Ajouter du travail supplémentaire</b> et prenez une photo.</li>
+        <li>Remplissez <b>Description</b>, <b>Prix (optionnel)</b> et <b>Nom du client</b>, faites signer le client et touchez <b>Confirmer</b>.</li>
+      </ol>
+      <h3>Ce que vous devez voir</h3>
+      <p>Dans <b>Aperçu</b>, le texte <b>En cours depuis …</b> avec l'heure. Après le supplément, le message <b>Travaux supplémentaires ajoutés</b> et la ligne <b>Travaux supplémentaires non facturés</b>.</p>
+      <a class="melden" href="/feedback.html?missie=5&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>6.</span> Signature, facture et QR de paiement</h2>
+      <ol>
+        <li>Dans l'intervention, touchez <b>Terminer l'intervention</b>.</li>
+        <li>Remplissez <b>Nom du client</b>, faites signer le client et touchez <b>Confirmer</b>.</li>
+        <li>Touchez <b>Créer la facture et faire payer</b>.</li>
+        <li>Le QR de paiement s'affiche en grand, avec <b>À payer</b>. Touchez ensuite <b>Terminé</b>.</li>
+        <li>Dans l'intervention, touchez <b>Envoyer la facture</b>, puis <b>Envoyer</b>. Envoyez-la à votre client ou à vous-même.</li>
+      </ol>
+      <h3>Ce que vous devez voir</h3>
+      <p>Le message <b>Signature enregistrée</b>, puis le QR avec le bon montant. Après l'envoi, le message <b>Facture partagée — statut mis à Envoyée</b>. Pas de QR mais un message sur votre IBAN ? Complétez-le à la mission 1.</p>
+      <a class="melden" href="/feedback.html?missie=6&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>7.</span> Rappel et export</h2>
+      <ol>
+        <li>Laissez la facture de la mission 6 impayée jusqu'après son échéance. Le délai se trouve dans <b>Profil de l'entreprise</b>, sous <b>Délai de paiement factures (jours)</b>.</li>
+        <li>Une fois l'échéance passée, regardez dans <b>Aujourd'hui</b> sous <b>Action requise</b>. Touchez <b>Envoyer un rappel</b> à côté de la facture et envoyez-le à vous-même.</li>
+        <li>Touchez <b>Paramètres</b>, puis <b>Exporter</b>.</li>
+        <li>Choisissez <b>Mois</b> et touchez <b>Exporter</b>. Gardez le fichier ou envoyez-le à vous-même.</li>
+      </ol>
+      <h3>Ce que vous devez voir</h3>
+      <p>Après le rappel, le message <b>Rappel envoyé</b>. Après l'export, <b>… factures prêtes à partager.</b>, avec chaque facture en PDF et un CSV comptable.</p>
+      <a class="melden" href="/feedback.html?missie=7&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>8.</span> Traduire avec le client</h2>
+      <ol>
+        <li>Ouvrez une intervention et touchez <b>Traduire</b>, à côté de <b>Appeler</b> et <b>WhatsApp</b>.</li>
+        <li>Touchez en haut à droite la langue du client et choisissez celle qu'il parle.</li>
+        <li>La première fois, l'application propose de télécharger cette langue. Faites-le en wifi.</li>
+        <li>Tapez ou dictez dans <b>Vous</b> et touchez <b>Traduire</b>. Laissez le client répondre dans le champ <b>Client</b> et touchez <b>Traduire</b> en dessous.</li>
+        <li>Activez ensuite le mode avion et réessayez.</li>
+      </ol>
+      <h3>Ce que vous devez voir</h3>
+      <p>Chaque phrase revient traduite, même en mode avion.</p>
+      <a class="melden" href="/feedback.html?missie=8&amp;taal=fr">Un souci avec cette mission ? Signalez-le</a>
+    </div>
+  </section>
+
+  <section id="en" lang="en">
+    <h1>How to test FABE</h1>
+    <p class="sub">Eight short missions through an ordinary working day. Do them in order: each mission carries on with what you made in the one before. Set the app to English and the button names below will match.</p>
+    <p class="sub">No real client at hand? Make one up, for example Van Dijk Installatietechniek, Havenstraat 12, 3311 AB Dordrecht.</p>
+
+    <div class="missie">
+      <h2><span>1.</span> Set up your business</h2>
+      <ol>
+        <li>Tap <b>Settings</b> at the bottom, then <b>Company profile</b>.</li>
+        <li>Fill in <b>Company name</b>, <b>Address</b>, <b>Postal code</b>, <b>City</b> and <b>VAT number</b>.</li>
+        <li>Fill in your <b>IBAN</b> and your <b>Default hourly rate</b>. Without an IBAN your invoice gets no payment QR (mission 6).</li>
+        <li>Tap <b>Choose logo</b> and pick your logo.</li>
+        <li>Tap <b>Save profile</b>.</li>
+      </ol>
+      <h3>What you should see</h3>
+      <p>The message <b>Company profile saved</b>. Your name and logo appear on every quote and invoice.</p>
+      <a class="melden" href="/feedback.html?missie=1&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>2.</span> Add a client</h2>
+      <ol>
+        <li>Tap the gold <b>+</b> in the middle at the bottom and choose <b>New client</b>.</li>
+        <li>Fill in <b>Name</b>, <b>Street and number</b>, <b>Postal code</b>, <b>City</b> and <b>Phone</b>.</li>
+        <li>At <b>Which language do you communicate in with this client?</b>, choose your client's language.</li>
+        <li>Tap <b>Save client</b>.</li>
+      </ol>
+      <p>Is the client already in your phone? Tap <b>Clients</b>, <b>Pick from contacts</b>, tick them and tap <b>Add as client (1)</b>.</p>
+      <h3>What you should see</h3>
+      <p>The message <b>Client created</b>, and the client is in the list under <b>Clients</b>.</p>
+      <a class="melden" href="/feedback.html?missie=2&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>3.</span> Make a quote</h2>
+      <ol>
+        <li>Tap the gold <b>+</b> and choose <b>New job</b>. Pick your client at <b>Client name</b>, fill in <b>Job title</b> and tap <b>Create job</b>.</li>
+        <li>On the job, tap the <b>Quote</b> tab, then <b>+ Draft a quote</b>.</li>
+        <li>Tap <b>+ Add labor or materials</b>, fill in <b>Description</b> and <b>Unit price</b>, then tap <b>Save</b>. Do this for each line.</li>
+        <li>Tap <b>Send as PDF</b>, then <b>Send</b>. Send it to your client or to yourself.</li>
+      </ol>
+      <h3>What you should see</h3>
+      <p>The message <b>Quote sent</b>. The PDF carries your logo, your details and the total including VAT.</p>
+      <a class="melden" href="/feedback.html?missie=3&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>4.</span> Plan and start a job</h2>
+      <ol>
+        <li>Open the job from mission 3 and tap the <b>Overview</b> tab.</li>
+        <li>Tap <b>Schedule</b>, choose <b>Today</b> or <b>Tomorrow</b>, and a time under <b>From</b> and under <b>To</b>.</li>
+        <li>Tap <b>Schedule</b> again.</li>
+        <li>At the client's? Tap <b>Start job</b> at the bottom.</li>
+      </ol>
+      <h3>What you should see</h3>
+      <p>After scheduling, the message <b>Scheduled for …</b>, and the job shows in <b>Schedule</b>. After starting, the question <b>Take before photos?</b> with <b>Camera</b>, <b>From gallery</b> and <b>Skip</b>, and the <b>Finish job</b> button at the bottom.</p>
+      <a class="melden" href="/feedback.html?missie=4&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>5.</span> On the job: hours, photos, materials, extra work</h2>
+      <ol>
+        <li>Your hours have been running since <b>Start job</b>. To check them, tap <b>Enter or edit hours</b>.</li>
+        <li>Tap the <b>Photos</b> tab, then <b>+ During photo</b>.</li>
+        <li>On <b>Overview</b>, type what you use under <b>New material</b>, for example 20m PVC pipe, and tap <b>Add</b>.</li>
+        <li>Client asks for something extra? Tap <b>Add extra work</b> and take a photo.</li>
+        <li>Fill in <b>Description</b>, <b>Price (optional)</b> and <b>Client name</b>, let the client sign and tap <b>Confirm</b>.</li>
+      </ol>
+      <h3>What you should see</h3>
+      <p>On <b>Overview</b>, the text <b>Running since …</b> with the time. After the extra work, the message <b>Extra work added</b> and the line <b>Extra work not invoiced</b>.</p>
+      <a class="melden" href="/feedback.html?missie=5&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>6.</span> Signature, invoice and payment QR</h2>
+      <ol>
+        <li>On the job, tap <b>Finish job</b>.</li>
+        <li>Fill in <b>Client name</b>, let the client sign and tap <b>Confirm</b>.</li>
+        <li>Tap <b>Create invoice and get paid</b>.</li>
+        <li>The payment QR fills the screen, with <b>Amount due</b>. Then tap <b>Done</b>.</li>
+        <li>On the job, tap <b>Send invoice</b>, then <b>Send</b>. Send it to your client or to yourself.</li>
+      </ol>
+      <h3>What you should see</h3>
+      <p>The message <b>Signature saved</b>, then the QR with the right amount. After sending, the message <b>Invoice shared — status set to Sent</b>. No QR but a message about your IBAN? Fill it in at mission 1.</p>
+      <a class="melden" href="/feedback.html?missie=6&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>7.</span> Reminder and export</h2>
+      <ol>
+        <li>Leave the invoice from mission 6 unpaid until after its due date. The term is in <b>Company profile</b>, under <b>Invoice payment term (days)</b>.</li>
+        <li>Once it is overdue, look on <b>Today</b> under <b>Needs attention</b>. Tap <b>Send reminder</b> next to the invoice and send it to yourself.</li>
+        <li>Tap <b>Settings</b>, then <b>Export</b>.</li>
+        <li>Choose <b>Month</b> and tap <b>Export</b>. Keep the file or send it to yourself.</li>
+      </ol>
+      <h3>What you should see</h3>
+      <p>After the reminder, the message <b>Reminder sent</b>. After the export, <b>… invoices ready to share.</b>, with every invoice as a PDF and one accounting CSV.</p>
+      <a class="melden" href="/feedback.html?missie=7&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+
+    <div class="missie">
+      <h2><span>8.</span> Translate with the client</h2>
+      <ol>
+        <li>Open a job and tap <b>Translate</b>, next to <b>Call</b> and <b>WhatsApp</b>.</li>
+        <li>Tap the client's language at the top right and choose the language they speak.</li>
+        <li>The first time, the app offers to download that language. Do it on wifi.</li>
+        <li>Type or speak in <b>You</b> and tap <b>Translate</b>. Let the client answer in the <b>Customer</b> box and tap <b>Translate</b> there.</li>
+        <li>Then switch on airplane mode and try again.</li>
+      </ol>
+      <h3>What you should see</h3>
+      <p>Every sentence comes back translated, also in airplane mode.</p>
+      <a class="melden" href="/feedback.html?missie=8&amp;taal=en">Something wrong in this mission? Report it</a>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="/">← getfabe.com</a> · <a href="/feedback.html" data-feedback>Feedback</a> · <a href="/privacy.html">Privacy</a></p>
+  </footer>
+</div>
+<script>
+(function () {
+  // Zelfde taalkeuze als feedback.html: ?taal=, anders de taal van de browser, anders NL.
+  // Zonder JavaScript blijven alle drie de talen onder elkaar staan.
+  var p = new URLSearchParams(location.search);
+  var nav = (navigator.language || 'nl').slice(0, 2);
+  var taal = p.get('taal') || (nav === 'fr' || nav === 'en' ? nav : 'nl');
+  if (['nl', 'fr', 'en'].indexOf(taal) < 0) taal = 'nl';
+  document.documentElement.lang = taal;
+  document.documentElement.className = 'js';
+  ['nl', 'fr', 'en'].forEach(function (t) { if (t !== taal) document.getElementById(t).hidden = true; });
+  document.querySelectorAll('.talen a').forEach(function (a) {
+    if (a.getAttribute('data-taal') === taal) a.classList.add('actief');
+  });
+  document.querySelector('a[data-feedback]').setAttribute('href', '/feedback.html?taal=' + taal);
+  document.title = { nl: 'Handleiding FABE-bèta', fr: 'Guide de la bêta FABE', en: 'FABE beta guide' }[taal];
+})();
+</script>
+</body>
+</html>
